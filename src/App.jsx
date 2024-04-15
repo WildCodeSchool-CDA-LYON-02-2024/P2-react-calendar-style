@@ -1,5 +1,5 @@
 import "./App.css";
-import CalendarCases from "./components/CalendarCases";
+import CalendarCases from "./components/calendarCases/CalendarCases";
 
 function App() {
   return (
