@@ -1,13 +1,12 @@
-import './App.css'
+import "./App.css";
+import CalendarCases from "./components/CalendarCases";
 
 function App() {
-
-
   return (
     <>
-      <h1>test</h1>
+      <CalendarCases />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
