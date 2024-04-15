@@ -7,8 +7,10 @@ function App() {
       <WeekDaysCases
         color='yellow'
         backgroundColor='black'
-        fontFamily='verdana'
+        fontFamily='roboto'
         english
+      
+
       />
     </>
   );

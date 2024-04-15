@@ -34,9 +34,21 @@ export default function WeekDaysCases({color,backgroundColor,fontFamily,english}
 
 
 WeekDaysCases.propTypes = {
+  /**Les différentes Propriétés de WeekDaysCases */
+  /**Couleur de la police */
   color: PropTypes.string,
+  /**Couleur de l'arrière-plan */
   backgroundColor: PropTypes.string,
+  /**La police */
   fontFamily: PropTypes.string,
-  fontSize: PropTypes.number,
+ /**La langue */
   english: PropTypes.bool,
+};
+
+WeekDaysCases.defaultProps = {
+ 
+  backgroundColor: null,
+  color: null,
+  english: false,
+  fontFamily: null,
 };
