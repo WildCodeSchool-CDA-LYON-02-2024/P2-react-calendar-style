@@ -1,13 +1,17 @@
-import './App.css'
+import './App.css';
+import WeekDaysCases from './components/weekDaysCase/WeekDaysCases';
 
 function App() {
-
-
   return (
     <>
-      <h1>test</h1>
+      <WeekDaysCases
+        color='yellow'
+        backgroundColor='black'
+        fontFamily='verdana'
+        english
+      />
     </>
-  )
+  );
 }
 
-export default App
+export default App;
