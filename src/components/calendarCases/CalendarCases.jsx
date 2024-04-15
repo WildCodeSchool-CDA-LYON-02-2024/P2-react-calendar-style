@@ -5,6 +5,7 @@ export default function CalendarCases() {
   const [mode, setMode] = useState("month");
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [language, setLanguage] = useState("fr");
+  const [theme, setTheme] = useState("light");
 
   const yearFr = {
     month: [
@@ -54,8 +55,12 @@ export default function CalendarCases() {
     }
   };
 
+  const handleSwitchTheme = () => {
+    setTheme(theme === "light" ? "dark" : "light");
+  };
+
   return (
-    <div className="calendarCasesContainer">
+    <div className={`calendarCasesContainer ${theme}`}>
       <div className="topContainer">
         <button onClick={() => setMode("month")}>
           {language === "fr" ? "Afficher les mois" : "Show months"}
@@ -64,6 +69,15 @@ export default function CalendarCases() {
           {language === "fr"
             ? "Changer de langue : (ENG)"
             : "Change language (FR)"}
+        </button>
+        <button onClick={handleSwitchTheme}>
+          {language === "fr"
+            ? theme === "light"
+              ? "Mode sombre"
+              : "Mode clair"
+            : theme === "light"
+              ? "Dark mode"
+              : "Light mode"}
         </button>
       </div>
       {mode === "month" && (

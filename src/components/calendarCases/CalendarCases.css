@@ -7,7 +7,6 @@
 .calendarCasesContainer {
   height: 400px;
   width: 400px;
-  border: 2px red solid;
 }
 
 .allMonthsContainer {
@@ -55,4 +54,23 @@ button {
   height: 2rem;
   text-align: center;
   border-bottom: 2px solid lightblue;
+}
+
+.light {
+  background-color: #ffffff;
+  color: #000000;
+}
+
+.light button {
+  color: #000000;
+}
+
+/* Thème sombre */
+.dark {
+  background-color: #333333;
+  color: #ffffff;
+}
+
+.dark button {
+  color: #ffffff;
 }
