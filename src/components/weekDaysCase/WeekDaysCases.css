@@ -1,0 +1,12 @@
+.wrapper-days > div {
+  width: 50px;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid black;
+  text-align: center;
+}
+
+.wrapper-days {
+  display: flex;
+  gap: 10px;
+}

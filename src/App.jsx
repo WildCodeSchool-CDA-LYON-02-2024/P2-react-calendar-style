@@ -1,17 +1,25 @@
-import "./App.css";
-import CalendarCases from "./components/calendarCases/CalendarCases";
+import './App.css';
+import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
+import CalendarCases from './components/calendarCases/CalendarCases';
 
-function App() {
+function App(width) {
   return (
     <>
-<CalendarCases
-  language="fr"
-  color="red"
-  fontFamily="Roboto"
-  backgroundColor="white"
-  height = "500px"
-  width = "500px"
-/>
+      <WeekDaysCases
+        color='yellow'
+        backgroundColor='black'
+        fontFamily='roboto'
+        english
+        width={width + ' px'}
+      />
+      <CalendarCases
+        language='fr'
+        color='red'
+        fontFamily='Roboto'
+        backgroundColor='white'
+        height='500px'
+        width='500px'
+      />
     </>
   );
 }
