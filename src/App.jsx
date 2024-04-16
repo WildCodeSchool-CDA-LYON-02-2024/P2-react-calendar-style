@@ -2,23 +2,23 @@ import './App.css';
 import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
 import CalendarCases from './components/calendarCases/CalendarCases';
 
-function App(width) {
+function App() {
   return (
     <>
       <WeekDaysCases
-        color='yellow'
-        backgroundColor='black'
-        fontFamily='roboto'
-        english
-        width={width + ' px'}
+        // color='yellow'
+        // backgroundColor='black'
+        // fontFamily='roboto'
+        // english
+        // width={width + ' px'}
       />
       <CalendarCases
-        language='fr'
-        color='red'
-        fontFamily='Roboto'
-        backgroundColor='white'
-        height='500px'
-        width='500px'
+        // language='fr'
+        // color='red'
+        // fontFamily='Roboto'
+        // backgroundColor='white'
+        // height='500px'
+        // width='500px'
       />
     </>
   );

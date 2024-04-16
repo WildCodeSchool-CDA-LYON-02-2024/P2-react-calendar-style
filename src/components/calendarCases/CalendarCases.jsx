@@ -24,22 +24,22 @@ export default function CalendarCases({
 
   return (
     <div
-      className={`calendarCasesContainer light`}
+      className={"calendarCasesContainer"}
       style={{
-        color: color ? color : "black",
-        fontFamily: fontFamily ? fontFamily : "Roboto",
-        backgroundColor: backgroundColor ? backgroundColor : "white",
-        height: height? height : "500px",
-        width: width ? width : "500px",
+        color,
+        fontFamily,
+        backgroundColor,
+        height,
+        width,
       }}
     >
       <div className="topContainer">
         <button
           onClick={() => setMode("month")}
           style={{
-            color: color ? color : "black",
-            fontFamily: fontFamily ? fontFamily : "Roboto",
-            backgroundColor: backgroundColor ? backgroundColor : "white",
+            color,
+            fontFamily,
+            backgroundColor,
           }}
         >
           {currentLanguage === "fr" ? "Afficher les mois" : "Show months"}
@@ -53,9 +53,9 @@ export default function CalendarCases({
                 <button
                   onClick={() => handleMonthClick(index)}
                   style={{
-                    color: color ? color : "black",
-                    fontFamily: fontFamily ? fontFamily : "Roboto",
-                    backgroundColor: backgroundColor ? backgroundColor : "white",
+                    color,
+                    fontFamily,
+                    backgroundColor,
                   }}
                 >
                   {month.name}
@@ -90,3 +90,11 @@ CalendarCases.propTypes = {
   width: PropTypes.string,
 };
 
+CalendarCases.defaultProps = {
+  language: "fr",
+  color: "black",
+  fontFamily: "Roboto",
+  backgroundColor: "white",
+  height: "500px",
+  width: "500px",
+};
