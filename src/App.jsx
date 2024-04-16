@@ -1,13 +1,19 @@
-import './App.css'
+import "./App.css";
+import CalendarCases from "./components/calendarCases/CalendarCases";
 
 function App() {
-
-
   return (
     <>
-      <h1>test</h1>
+<CalendarCases
+  language="fr"
+  color="red"
+  fontFamily="Roboto"
+  backgroundColor="white"
+  height = "500px"
+  width = "500px"
+/>
     </>
-  )
+  );
 }
 
-export default App
+export default App;
