@@ -1,11 +1,18 @@
 import { useState } from "react";
+import PropTypes from "prop-types";
 import "./CalendarCases.css";
 
-export default function CalendarCases() {
+export default function CalendarCases({
+  language,
+  color,
+  fontFamily,
+  backgroundColor,
+  height,
+  width,
+}) {
   const [mode, setMode] = useState("month");
   const [selectedMonth, setSelectedMonth] = useState(null);
-  const [language, setLanguage] = useState("fr");
-  const [theme, setTheme] = useState("light");
+  const [currentLanguage] = useState(language);
 
   const yearFr = {
     month: [
@@ -43,49 +50,47 @@ export default function CalendarCases() {
 
   const handleMonthClick = (index) => {
     setSelectedMonth(
-      language === "fr" ? yearFr.month[index] : yearEn.months[index]
+      currentLanguage === "fr" ? yearFr.month[index] : yearEn.months[index]
     );
     setMode("days");
   };
 
-  const handleSwitchLanguage = () => {
-    setLanguage(language === "fr" ? "en" : "fr");
-    if (mode === "days") {
-      setMode("month");
-    }
-  };
-
-  const handleSwitchTheme = () => {
-    setTheme(theme === "light" ? "dark" : "light");
-  };
-
   return (
-    <div className={`calendarCasesContainer ${theme}`}>
+    <div
+      className={`calendarCasesContainer light`}
+      style={{
+        color: color ? color : "black",
+        fontFamily: fontFamily ? fontFamily : "Roboto",
+        backgroundColor: backgroundColor ? backgroundColor : "white",
+        height: height? height : "500px",
+        width: width ? width : "500px",
+      }}
+    >
       <div className="topContainer">
-        <button onClick={() => setMode("month")}>
-          {language === "fr" ? "Afficher les mois" : "Show months"}
-        </button>
-        <button onClick={handleSwitchLanguage}>
-          {language === "fr"
-            ? "Changer de langue : (ENG)"
-            : "Change language (FR)"}
-        </button>
-        <button onClick={handleSwitchTheme}>
-          {language === "fr"
-            ? theme === "light"
-              ? "Mode sombre"
-              : "Mode clair"
-            : theme === "light"
-              ? "Dark mode"
-              : "Light mode"}
+        <button
+          onClick={() => setMode("month")}
+          style={{
+            color: color ? color : "black",
+            fontFamily: fontFamily ? fontFamily : "Roboto",
+            backgroundColor: backgroundColor ? backgroundColor : "white",
+          }}
+        >
+          {currentLanguage === "fr" ? "Afficher les mois" : "Show months"}
         </button>
       </div>
       {mode === "month" && (
         <div className="allMonthsContainer">
-          {(language === "fr" ? yearFr.month : yearEn.months).map(
+          {(currentLanguage === "fr" ? yearFr.month : yearEn.months).map(
             (month, index) => (
               <div key={index} className="monthsList">
-                <button onClick={() => handleMonthClick(index)}>
+                <button
+                  onClick={() => handleMonthClick(index)}
+                  style={{
+                    color: color ? color : "black",
+                    fontFamily: fontFamily ? fontFamily : "Roboto",
+                    backgroundColor: backgroundColor ? backgroundColor : "white",
+                  }}
+                >
                   {month.name}
                 </button>
               </div>
@@ -108,3 +113,13 @@ export default function CalendarCases() {
     </div>
   );
 }
+
+CalendarCases.propTypes = {
+  language: PropTypes.oneOf(["fr", "eng"]),
+  color: PropTypes.string,
+  fontFamily: PropTypes.string,
+  backgroundColor: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+};
+

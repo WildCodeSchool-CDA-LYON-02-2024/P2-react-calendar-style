@@ -1,76 +1,61 @@
-.topContainer{
-    display: flex;
-    justify-content: space-evenly;
-    
+.topContainer {
+  display: flex;
+  justify-content: space-evenly;
 }
 
 .calendarCasesContainer {
-  height: 400px;
-  width: 400px;
+  height: 500px;
+  width: 500px;
 }
 
 .allMonthsContainer {
+  height: 100%;
   display: flex;
   margin: 1rem;
-  gap: 2rem;
+  gap: 10%;
   flex-wrap: wrap;
   justify-content: center;
 }
 
 .monthsList {
-  width: 20%;
+  width: 15%;
   border-bottom: 2px solid lightblue;
   text-align: center;
+  height: 15%;
+
 }
 
 .monthContainer {
-    font-weight: bold;
+  font-weight: bold;
   display: flex;
   flex-direction: column;
   justify-content: center;
   align-items: center;
+  height: 100%;
 }
 button {
   font-weight: bold;
-  font-size: 0.6rem;
+  font-size: 1.3rem;
   background: none;
   border: none;
   padding: 1rem 0 1rem 0;
   cursor: pointer;
+  
 }
 
 .daysContainer {
   display: flex;
   flex-wrap: wrap;
-  margin: 1rem;
   gap: 1rem;
-  justify-content: center;
+  height: 100%;
 }
 
 .days {
   font-weight: bold;
-  width: 20px;
+  font-size: 150%;
+  width: 10%;
   margin: 0 0.5rem 0 0.5rem;
   height: 2rem;
   text-align: center;
   border-bottom: 2px solid lightblue;
-}
-
-.light {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.light button {
-  color: #000000;
-}
-
-/* Thème sombre */
-.dark {
-  background-color: #333333;
-  color: #ffffff;
-}
-
-.dark button {
-  color: #ffffff;
 }
