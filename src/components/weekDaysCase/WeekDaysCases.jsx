@@ -1,6 +1,9 @@
+
 import "./WeekDaysCases.css";
 import PropTypes from "prop-types";
 import { days, daysFr } from "../../services/weekDays";
+
+
 
 /** Le composant WeekDays permet d'afficher les jours de la semaine */
 export default function WeekDaysCases({
@@ -9,7 +12,14 @@ export default function WeekDaysCases({
   fontFamily,
   english,
   width,
-}) {
+})
+
+
+{
+
+  
+
+  
   return (
     <div className="wrapper-days">
       {english
@@ -42,7 +52,9 @@ export default function WeekDaysCases({
           ))}
     </div>
   );
-}
+  }
+  
+
 
 WeekDaysCases.propTypes = {
   /** Les différentes Propriétés de WeekDaysCases */

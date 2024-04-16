@@ -2,6 +2,8 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "./CalendarCases.css";
 import { months, monthsFr } from "../../services/months";
+import themes from "../../services/themes";
+
 
 export default function CalendarCases({
   language,
@@ -21,6 +23,7 @@ export default function CalendarCases({
     );
     setMode("days");
   };
+  console.log(themes[1].backgroundColor)
 
   return (
     <div
@@ -28,7 +31,7 @@ export default function CalendarCases({
       style={{
         color,
         fontFamily,
-        backgroundColor,
+        backgroundColor: backgroundColor ? backgroundColor : themes[1].backgroundColor,
         height,
         width,
       }}
@@ -55,7 +58,7 @@ export default function CalendarCases({
                   style={{
                     color,
                     fontFamily,
-                    backgroundColor,
+                    backgroundColor: backgroundColor ? backgroundColor : themes[0].backgroundColor,
                   }}
                 >
                   {month.name}
@@ -90,11 +93,11 @@ CalendarCases.propTypes = {
   width: PropTypes.string,
 };
 
-CalendarCases.defaultProps = {
-  language: "fr",
-  color: "black",
-  fontFamily: "Roboto",
-  backgroundColor: "white",
-  height: "500px",
-  width: "500px",
-};
+// CalendarCases.defaultProps = {
+//   language: "fr",
+//   color: "black",
+//   fontFamily: "Roboto",
+//   backgroundColor: "white",
+//   height: "500px",
+//   width: "500px",
+// };
