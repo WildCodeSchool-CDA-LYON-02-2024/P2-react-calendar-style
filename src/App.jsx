@@ -6,7 +6,7 @@ function App() {
     <>
 <CalendarCases
   language="fr"
-  color="blue"
+  color="red"
   fontFamily="Roboto"
   backgroundColor="white"
   height = "500px"
