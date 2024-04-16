@@ -1,4 +1,5 @@
-import  WeekDaysCases from '../components/weekDaysCase/WeekDaysCases';
+import WeekDaysCases from '../components/weekDaysCase/WeekDaysCases';
+import { userEvent, within } from '@storybook/test';
 
 // eslint-disable-next-line storybook/story-exports
 export default {
@@ -28,3 +29,4 @@ export default {
 export function Default (args) {
   return <WeekDaysCases{...args} />
 }
+
