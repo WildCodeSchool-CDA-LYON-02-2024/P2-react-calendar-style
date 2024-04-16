@@ -1,7 +1,7 @@
 import './App.css';
-import WeekDaysCases from './components/weekDaysCase/WeekDaysCases';
+import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
 
-function App() {
+function App(width) {
   return (
     <>
       <WeekDaysCases
@@ -9,6 +9,8 @@ function App() {
         backgroundColor='black'
         fontFamily='roboto'
         english
+        width={width +" px"}
+     
       
 
       />
