@@ -12,7 +12,16 @@ import CalendarCases from './components/calendarCases/CalendarCases';
     return (
     <>
       <div>
-        <InputDate value={date} setValue={setDate} />  
+        <InputDate value={date} setValue={setDate}
+         height= "40px"
+         width= "30%"
+         background= "white"
+         color= "green"
+         fontFamily= "Arial" 
+         border= "3px solid grey"
+         borderRadius= "5px"
+        
+        />  
       </div>
       <WeekDaysCases
         color='yellow'
@@ -29,7 +38,7 @@ import CalendarCases from './components/calendarCases/CalendarCases';
         height='500px'
         width='500px'
       />
-        <SaisonImg date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`} />
+        <SaisonImg date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`} width= "30%"/>
     </>
   );
 }

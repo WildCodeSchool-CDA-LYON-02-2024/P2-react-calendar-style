@@ -2,9 +2,33 @@
 import PropTypes from "prop-types";
 import "./inputDate.css";
 
-function InputDate({ value, setValue, background = "#fff", color = "#000"}) {
-  const handleChange = (e) => {
-    setValue(new Date(e.target.value));
+function InputDate({
+  value, 
+  setValue, 
+  fontFamily, 
+  background, 
+  color,
+  height, 
+  width,
+  border, 
+  borderRadius,
+  fontSize
+}) {
+
+  const styleElement = {
+    width: width,
+    height : height,
+    fontFamily: fontFamily,
+    background: background,
+    color: color,
+    border: border,
+    borderRadius: borderRadius,
+    fontSize: fontSize
+
+  }
+ 
+const handleChange = (e) => {
+  setValue(new Date(e.target.value));
   };
 
   // Convertir la valeur en chaîne au format ISO si elle est une instance de Date
@@ -17,7 +41,7 @@ function InputDate({ value, setValue, background = "#fff", color = "#000"}) {
         type="date"
         onChange={(e) => handleChange(e)}
         value={dateValue} // Utiliser la valeur convertie
-        style={{ background: background, color: color, border: "1px solid " + color }}
+        style={styleElement}
       />
     </div>
   );
@@ -26,8 +50,24 @@ function InputDate({ value, setValue, background = "#fff", color = "#000"}) {
 InputDate.propTypes = {
   value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]).isRequired,
   setValue: PropTypes.func.isRequired,
+  height:PropTypes.number,
+  width: PropTypes.number,
   background: PropTypes.string,
   color: PropTypes.string,
+  fontFamily: PropTypes.string, 
+  border: PropTypes.string, 
+  borderRadius: PropTypes.number,
+  fontSize: PropTypes.number
 };
 
 export default InputDate;
+InputDate.defaultProps = {
+  height: "40px",
+  width: "480px",
+  background: "white",
+  color: "black",
+  fontFamily: "arial",
+  border: "1px solid blue",
+  borderRadius: "5px",
+  fontSize: "20px"
+};

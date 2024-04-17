@@ -2,19 +2,26 @@ import PropTypes from "prop-types";
 import Image from "./Image";
 import "./image.css";
 
-function SaisonImg(props) {
-  const { date } = props;
+import { saisDate, urlsImg } from "../../services/Saison"
+
+// function SaisonImg(props) {
+//   const { date } = props;
   
-  const sais1 = "2024-03-01";
-  const sais2 = "2024-06-01";
-  const sais3 = "2024-09-01";
-  const sais4 = "2024-12-01";
+function SaisonImg({
+  date, 
+  height, 
+  width,
+  border, 
+  borderRadius,
+}) {
 
-  const img1 = "printemps.jpg";
-  const img2 = "ete.jpg";
-  const img3 = "automne.jpg";
-  const img4 = "hiver.jpg";
-
+  const styleElement = {
+    width: width,
+    height : height,
+    border: border,
+    borderRadius: borderRadius
+  }
+ 
   const monthDayFormat = (dateCurrent) => {
     const maDate = new Date(dateCurrent);
     return (maDate?.getMonth() + 1) * 100 + maDate?.getDate();
@@ -22,40 +29,52 @@ function SaisonImg(props) {
 
   const setSaisons = (dateSais) => {
     if (
-      monthDayFormat(dateSais) >= monthDayFormat(sais1) &&
-      monthDayFormat(dateSais) < monthDayFormat(sais2)
+      monthDayFormat(dateSais) >= monthDayFormat(saisDate.printemt) &&
+      monthDayFormat(dateSais) < monthDayFormat(saisDate.ete)
     ) {
-      return img1;
+      return urlsImg.img1;
     }
     if (
-      monthDayFormat(dateSais) >= monthDayFormat(sais2) &&
-      monthDayFormat(dateSais) < monthDayFormat(sais3)
+      monthDayFormat(dateSais) >= monthDayFormat(saisDate.ete) &&
+      monthDayFormat(dateSais) < monthDayFormat(saisDate.automne)
     ) {
-      return img2;
+      return urlsImg.img2;
     }
 
     if (
-      monthDayFormat(dateSais) >= monthDayFormat(sais3) &&
-      monthDayFormat(dateSais) < monthDayFormat(sais4)
+      monthDayFormat(dateSais) >= monthDayFormat(saisDate.automne) &&
+      monthDayFormat(dateSais) < monthDayFormat(saisDate.hiver)
     ) {
-      return img3;
+      return urlsImg.img3;
     }
 
-    if (monthDayFormat(dateSais) >= monthDayFormat(sais4)) {
-      return img4;
+    if (monthDayFormat(dateSais) >= monthDayFormat(saisDate.hiver)) {
+      return urlsImg.img4;
     }
-    return img4;
+    return urlsImg.img4;
   };
 
   return (
     <div>
-      <Image src={setSaisons(date)} />
+      <Image src={setSaisons(date)} style={styleElement} />
     </div>
   );
 }
 
 SaisonImg.propTypes = {
     date: PropTypes.string.isRequired,
+    height: PropTypes.string.isRequired, 
+    width: PropTypes.string.isRequired,
+    border: PropTypes.string.isRequired,
+    borderRadius: PropTypes.number.isRequired,
+  };
+
+  SaisonImg.defaultProps = {
+    date: new Date(),
+    height: "360px", 
+    width: "480px",
+    border: "5px solid grey",
+    borderRadius: "10px",
   };
 
 export default SaisonImg;
