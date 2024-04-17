@@ -1,9 +1,8 @@
-
 import "./WeekDaysCases.css";
+
 import PropTypes from "prop-types";
 import { days, daysFr } from "../../services/weekDays";
-
-
+import { Themes } from "../../services/themes";
 
 /** Le composant WeekDays permet d'afficher les jours de la semaine */
 export default function WeekDaysCases({
@@ -12,27 +11,39 @@ export default function WeekDaysCases({
   fontFamily,
   english,
   width,
-})
-
-
-{
-
-  
-
-  
+  standard,
+  modern,
+}) {
   return (
     <div className="wrapper-days">
       {english
         ? days.map((days, i) => (
             <div
               key={i}
-              style={{
-                color,
-                backgroundColor,
-                fontFamily,
-                english,
-                width,
-              }}
+              style={
+                standard
+                  ? {
+                      color: Themes.Standard.color,
+                      backgroundColor: Themes.Standard.backgroundColor,
+                      fontFamily: Themes.Standard.fontFamily,
+                    }
+                  : modern
+                    ? {
+                        color: Themes.Modern.color,
+                        backgroundColor: Themes.Modern.backgroundColor,
+                        fontFamily: Themes.Modern.fontFamily,
+                      }
+                    : {
+                        color,
+                        backgroundColor,
+                        fontFamily,
+                        english,
+                        width,
+                      }
+              }
+              // style={{
+
+              // }}
             >
               {days}
             </div>
@@ -52,9 +63,7 @@ export default function WeekDaysCases({
           ))}
     </div>
   );
-  }
-  
-
+}
 
 WeekDaysCases.propTypes = {
   /** Les différentes Propriétés de WeekDaysCases */
@@ -68,6 +77,8 @@ WeekDaysCases.propTypes = {
   english: PropTypes.bool,
   /** La largeur */
   width: PropTypes.number,
+  standard: PropTypes.bool,
+  modern: PropTypes.bool,
 };
 
 WeekDaysCases.defaultProps = {

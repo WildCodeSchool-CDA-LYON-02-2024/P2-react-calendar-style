@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "./CalendarCases.css";
 import { months, monthsFr } from "../../services/months";
-import themes from "../../services/themes";
+import {Themes} from "../../services/themes";
 
 
 export default function CalendarCases({
@@ -10,12 +10,14 @@ export default function CalendarCases({
   color,
   fontFamily,
   backgroundColor,
+  theme,
   height,
   width,
 }) {
   const [mode, setMode] = useState("month");
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [currentLanguage] = useState(language);
+  const [currentThemes]= useState(theme)
 
   const handleMonthClick = (index) => {
     setSelectedMonth(
@@ -23,7 +25,15 @@ export default function CalendarCases({
     );
     setMode("days");
   };
-  console.log(themes[1].backgroundColor)
+
+  const handleSelect = (index) => {
+    return console.log(index.target.value);
+  };
+
+  (theme === "default" ? Themes.Standard : Themes.Modern)
+
+  console.log(currentThemes);
+
 
   return (
     <div
@@ -31,7 +41,7 @@ export default function CalendarCases({
       style={{
         color,
         fontFamily,
-        backgroundColor: backgroundColor ? backgroundColor : themes[1].backgroundColor,
+        backgroundColor: currentThemes.backgroundColor,
         height,
         width,
       }}
@@ -58,7 +68,7 @@ export default function CalendarCases({
                   style={{
                     color,
                     fontFamily,
-                    backgroundColor: backgroundColor ? backgroundColor : themes[0].backgroundColor,
+                    backgroundColor,
                   }}
                 >
                   {month.name}
@@ -73,7 +83,11 @@ export default function CalendarCases({
           <h2>{selectedMonth.name}</h2>
           <div className="daysContainer">
             {Array.from({ length: selectedMonth.nbDays }, (_, index) => (
-              <div key={index} className="days">
+              <div
+                key={index}
+                className="days"
+                onClick={() => handleSelect(index)}
+              >
                 {index + 1}
               </div>
             ))}
