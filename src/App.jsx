@@ -1,12 +1,7 @@
 // import './App.css';
 // import { useState } from 'react';
-import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
-import CalendarCases from './components/calendarCases/CalendarCases';
-
-
-
-
-
+import WeekDaysCases from "./components/weekDaysCase/WeekDaysCases.jsx";
+import CalendarCases from "./components/calendarCases/CalendarCases";
 
 // function flipTheme(t) {
 //     $('link[rel="stylesheet"]').each(function () {
@@ -17,25 +12,12 @@ import CalendarCases from './components/calendarCases/CalendarCases';
 //     });
 // }
 
-
-
-
 function App() {
-
- 
-
-  
-
-  
-  
-  
   return (
     <>
       <WeekDaysCases
         standard
-    
-        
-      
+
         // color= {themes[0].color}
         // backgroundColor={themes[0].backgroundColor}
         // fontFamily={themes[0].fontFamily}
@@ -43,13 +25,13 @@ function App() {
         // width={width + ' px'}
       />
       <CalendarCases
-      theme = "default"
-        // language='fr'
-        // color='red'
-        // fontFamily='Roboto'
-        // backgroundColor='red'
-        // height='500px'
-        // width='500px'
+      theme = "Standard"
+      // language='fr'
+      // color='red'
+      // fontFamily='Roboto'
+      // backgroundColor='red'
+      // height='500px'
+      // width='500px'
       />
     </>
   );
