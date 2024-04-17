@@ -111,8 +111,6 @@
 import { useState, useEffect } from "react";
 import PropTypes from "prop-types";
 import { months, monthsFr } from "../../services/months";
-
-// Importe le fichier CSS par défaut
 import "./CalendarCases.css";
 
 export default function CalendarCases({
