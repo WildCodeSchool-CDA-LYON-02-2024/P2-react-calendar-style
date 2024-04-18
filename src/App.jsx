@@ -16,7 +16,8 @@ function App() {
   return (
     <>
       <WeekDaysCases
-        standard
+        modern
+       
 
         // color= {themes[0].color}
         // backgroundColor={themes[0].backgroundColor}

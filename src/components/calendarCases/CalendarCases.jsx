@@ -129,9 +129,6 @@ export default function CalendarCases({
     setSelectedMonth(language === "fr" ? monthsFr[index] : months[index]);
     setMode("days");
   };
-<<<<<<< HEAD
-  
-=======
 
   useEffect(() => {
     if (theme === "custom") {
@@ -144,7 +141,6 @@ export default function CalendarCases({
         });
     }
   }, [theme]);
->>>>>>> e411f9b1a6bcc45b42c27eeb14808cff5cdeac8b
 
   return (
     <div
@@ -171,24 +167,6 @@ export default function CalendarCases({
       </div>
       {mode === "month" && (
         <div className="allMonthsContainer">
-<<<<<<< HEAD
-          {(currentLanguage === "fr" ? monthsFr : months).map(
-            (month, index) => (
-              <div key={index} className="monthsList">
-                <button
-                  onClick={() => handleMonthClick(index)}
-                  style={{
-                    color,
-                    fontFamily,
-                    backgroundColor,
-                  }}
-                >
-                  {month.name}
-                </button>
-              </div>
-            )
-          )}
-=======
           {(language === "fr" ? monthsFr : months).map((month, index) => (
             <div key={index} className="monthsList">
               <button onClick={() => handleMonthClick(index)}>
@@ -196,7 +174,6 @@ export default function CalendarCases({
               </button>
             </div>
           ))}
->>>>>>> e411f9b1a6bcc45b42c27eeb14808cff5cdeac8b
         </div>
       )}
       {mode === "days" && (

@@ -50,13 +50,27 @@ export default function WeekDaysCases({
           ))
         : daysFr.map((days, i) => (
             <div
-              key={i}
-              style={{
-                color,
-                backgroundColor,
-                fontFamily,
-                width,
-              }}
+            key={i}
+            style={
+              standard
+                ? {
+                  color: Themes.Standard.color,
+                  backgroundColor: Themes.Standard.backgroundColor,
+                  fontFamily: Themes.Standard.fontFamily,
+                }
+                : modern
+                  ? {
+                    color: Themes.Modern.color,
+                    backgroundColor: Themes.Modern.backgroundColor,
+                    fontFamily: Themes.Modern.fontFamily,
+                  }
+                  : {
+                    color,
+                    backgroundColor,
+                    fontFamily,
+                    english,
+                    width,
+                  }}
             >
               {days}
             </div>
