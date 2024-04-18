@@ -1,38 +1,33 @@
-// import './App.css';
-// import { useState } from 'react';
-import WeekDaysCases from "./components/weekDaysCase/WeekDaysCases.jsx";
-import CalendarCases from "./components/calendarCases/CalendarCases";
-
-// function flipTheme(t) {
-//     $('link[rel="stylesheet"]').each(function () {
-//         if (this.href.indexOf(theme)>=0) {
-//             this.href = this.href.replace(theme, t);
-//             theme = t;
-//         }
-//     });
-// }
+import { useState } from 'react';
+import SaisonImg from './components/saison_img/SaisonImg';
+import InputDate from './components/inputs/InputDate';
+import './App.css';
+import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
+import CalendarCases from './components/calendarCases/CalendarCases';
 
 function App() {
+  const currentDate = new Date();
+  const [date, setDate] = useState(currentDate);
   return (
     <>
-      <WeekDaysCases
-        modern
-       
-
-        // color= {themes[0].color}
-        // backgroundColor={themes[0].backgroundColor}
-        // fontFamily={themes[0].fontFamily}
-        // english
-        // width={width + ' px'}
-      />
-      <CalendarCases
-      theme = "Standard"
-      // language='fr'
-      // color='red'
-      // fontFamily='Roboto'
-      // backgroundColor='red'
-      // height='500px'
-      // width='500px'
+      <div>
+        <InputDate
+          value={date}
+          setValue={setDate}
+          height='40px'
+          width='30%'
+          background='white'
+          color='green'
+          fontFamily='Arial'
+          border='3px solid grey'
+          borderRadius='5px'
+        />
+      </div>
+      <WeekDaysCases modern />
+      <CalendarCases theme='Standard' />
+      <SaisonImg
+        date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
+        width='30%'
       />
     </>
   );
