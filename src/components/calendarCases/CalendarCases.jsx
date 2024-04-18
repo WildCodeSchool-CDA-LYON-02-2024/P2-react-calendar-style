@@ -2,7 +2,7 @@ import { useState } from "react";
 import PropTypes from "prop-types";
 import "./CalendarCases.css";
 import { months, monthsFr } from "../../services/months";
-import themes from "../../services/themes";
+
 
 
 export default function CalendarCases({
@@ -23,7 +23,7 @@ export default function CalendarCases({
     );
     setMode("days");
   };
-  console.log(themes[1].backgroundColor)
+  
 
   return (
     <div
@@ -31,7 +31,7 @@ export default function CalendarCases({
       style={{
         color,
         fontFamily,
-        backgroundColor: backgroundColor ? backgroundColor : themes[1].backgroundColor,
+        backgroundColor,
         height,
         width,
       }}
@@ -58,7 +58,7 @@ export default function CalendarCases({
                   style={{
                     color,
                     fontFamily,
-                    backgroundColor: backgroundColor ? backgroundColor : themes[0].backgroundColor,
+                    backgroundColor,
                   }}
                 >
                   {month.name}
