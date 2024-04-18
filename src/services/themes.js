@@ -20,20 +20,24 @@ const themes =[
 ]
 
 
-const Themes ={
-   Standard: {
-        "color": "black",
-        "backgroundColor": "pink",
-        "fontFamily": "Times New Roman",
-    },
-    Modern :
-    {
-        
-         "color": "yellow",
-        "backgroundColor": "black",
-        "fontFamily": "Verdana",
-}
-}
+const Themes = {
+  Standard: {
+    color: 'black',
+    backgroundColor: 'pink',
+    fontFamily: 'Times New Roman',
+  },
+  Modern: {
+    color: 'yellow',
+    backgroundColor: 'black',
+    fontFamily: 'Verdana',
+  },
+  Default: {
+    color: 'white',
+    backgroundColor: 'blue',
+    fontFamily: 'Arial',
+   
+  },
+};
 
 
 export {themes, Themes};

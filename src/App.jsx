@@ -23,7 +23,7 @@ function App() {
           borderRadius='5px'
         />
       </div>
-      <WeekDaysCases theme="Standard" color="red" />
+      <WeekDaysCases />
       <CalendarCases theme='Standard' />
       <SaisonImg
         date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}

@@ -16,8 +16,6 @@ export default function WeekDaysCases({
   const selectedTheme = Themes[theme] || null;
   const selectedLanguage = english ? days : daysFr;
 
- 
-
   return (
     <div className='wrapper-days'>
       {selectedLanguage.map((days, i) => (
@@ -26,26 +24,23 @@ export default function WeekDaysCases({
           style={
             selectedTheme
               ? {
-                  color:color ? color : selectedTheme.color,
-                  backgroundColor: backgroundColor ? backgroundColor: selectedTheme.backgroundColor,
-                  fontFamily:fontFamily? fontFamily: selectedTheme.fontFamily,
-                  width,
-                }
+                color: color ? color : selectedTheme.color,
+                backgroundColor: backgroundColor
+                  ? backgroundColor
+                  : selectedTheme.backgroundColor,
+                fontFamily: fontFamily
+                  ? fontFamily
+                  : selectedTheme.fontFamily,
+                width,
+              }
               : {
-                  color,
-                  backgroundColor,
-                  fontFamily,
+                color:color ? color:Themes.Default.color,
+                  backgroundColor:backgroundColor? backgroundColor: Themes.Default.backgroundColor,
+                  fontFamily : fontFamily ? fontFamily :Themes.Default.fontFamily,
                   english,
                   width,
                 }
           }
-
-          // style={{
-          //   color: color ? color : selectedTheme.color,
-          //   // backgroundColor: selectedTheme.backgroundColor,
-          //   // fontFamily: selectedTheme.fontFamily,
-          //   width,
-          // }}
         >
           {days}
         </div>
@@ -71,9 +66,9 @@ WeekDaysCases.propTypes = {
 };
 
 // WeekDaysCases.defaultProps = {
-//   backgroundColor: 'black',
-//   color: "white",
+//   backgroundColor: 'white',
+//   color: "blue",
 //   english: false,
-//   fontFamily: 'Roboto',
-//   width: 60,
+//   fontFamily: 'Arial',
+//   width: null,
 // };
