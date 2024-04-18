@@ -19,4 +19,21 @@ const themes =[
     }
 ]
 
-export default themes;
+
+const Themes ={
+   Standard: {
+        "color": "black",
+        "backgroundColor": "white",
+        "fontFamily": "Times New Roman",
+    },
+    Modern :
+    {
+        
+         "color": "yellow",
+        "backgroundColor": "black",
+        "fontFamily": "Verdana",
+}
+}
+
+
+export {themes, Themes};
