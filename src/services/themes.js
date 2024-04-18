@@ -23,7 +23,7 @@ const themes =[
 const Themes ={
    Standard: {
         "color": "black",
-        "backgroundColor": "white",
+        "backgroundColor": "pink",
         "fontFamily": "Times New Roman",
     },
     Modern :

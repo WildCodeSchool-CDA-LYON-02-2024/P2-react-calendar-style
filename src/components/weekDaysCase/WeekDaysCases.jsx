@@ -1,8 +1,8 @@
-import "./WeekDaysCases.css";
+import './WeekDaysCases.css';
 
-import PropTypes from "prop-types";
-import { days, daysFr } from "../../services/weekDays";
-import { Themes } from "../../services/themes";
+import PropTypes from 'prop-types';
+import { days, daysFr } from '../../services/weekDays';
+import { Themes } from '../../services/themes';
 
 /** Le composant WeekDays permet d'afficher les jours de la semaine */
 export default function WeekDaysCases({
@@ -11,70 +11,45 @@ export default function WeekDaysCases({
   fontFamily,
   english,
   width,
-  standard,
-  modern,
+  theme,
 }) {
-  return (
-    <div className="wrapper-days">
-      {english
-        ? days.map((days, i) => (
-            <div
-              key={i}
-              style={
-                standard
-                  ? {
-                      color: Themes.Standard.color,
-                      backgroundColor: Themes.Standard.backgroundColor,
-                      fontFamily: Themes.Standard.fontFamily,
-                    }
-                  : modern
-                    ? {
-                        color: Themes.Modern.color,
-                        backgroundColor: Themes.Modern.backgroundColor,
-                        fontFamily: Themes.Modern.fontFamily,
-                      }
-                    : {
-                        color,
-                        backgroundColor,
-                        fontFamily,
-                        english,
-                        width,
-                      }
-              }
-              // style={{
+  const selectedTheme = Themes[theme] || null;
+  const selectedLanguage = english ? days : daysFr;
 
-              // }}
-            >
-              {days}
-            </div>
-          ))
-        : daysFr.map((days, i) => (
-            <div
-            key={i}
-            style={
-              standard
-                ? {
-                  color: Themes.Standard.color,
-                  backgroundColor: Themes.Standard.backgroundColor,
-                  fontFamily: Themes.Standard.fontFamily,
+ 
+
+  return (
+    <div className='wrapper-days'>
+      {selectedLanguage.map((days, i) => (
+        <div
+          key={i}
+          style={
+            selectedTheme
+              ? {
+                  color:color ? color : selectedTheme.color,
+                  backgroundColor: backgroundColor ? backgroundColor: selectedTheme.backgroundColor,
+                  fontFamily:fontFamily? fontFamily: selectedTheme.fontFamily,
+                  width,
                 }
-                : modern
-                  ? {
-                    color: Themes.Modern.color,
-                    backgroundColor: Themes.Modern.backgroundColor,
-                    fontFamily: Themes.Modern.fontFamily,
-                  }
-                  : {
-                    color,
-                    backgroundColor,
-                    fontFamily,
-                    english,
-                    width,
-                  }}
-            >
-              {days}
-            </div>
-          ))}
+              : {
+                  color,
+                  backgroundColor,
+                  fontFamily,
+                  english,
+                  width,
+                }
+          }
+
+          // style={{
+          //   color: color ? color : selectedTheme.color,
+          //   // backgroundColor: selectedTheme.backgroundColor,
+          //   // fontFamily: selectedTheme.fontFamily,
+          //   width,
+          // }}
+        >
+          {days}
+        </div>
+      ))}
     </div>
   );
 }
@@ -91,14 +66,14 @@ WeekDaysCases.propTypes = {
   english: PropTypes.bool,
   /** La largeur */
   width: PropTypes.number,
-  standard: PropTypes.bool,
-  modern: PropTypes.bool,
+
+  theme: PropTypes.string,
 };
 
-WeekDaysCases.defaultProps = {
-  backgroundColor: "black",
-  color: "white",
-  english: false,
-  fontFamily: "Roboto",
-  width: 60,
-};
+// WeekDaysCases.defaultProps = {
+//   backgroundColor: 'black',
+//   color: "white",
+//   english: false,
+//   fontFamily: 'Roboto',
+//   width: 60,
+// };
