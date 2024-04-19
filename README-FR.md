@@ -1,3 +1,5 @@
+##  |  Note : La librairie est toujours en cours de développement.
+
 ![mobile Calendar](./public/img/Calendar.png)
 
 ## 📝 Présentation
@@ -9,7 +11,7 @@
 - Installation
 - Utilisation
 - Props
-
+<br/><br/>
 ## 📦 Installation
 
 Installation en exécutant la commande
@@ -17,7 +19,7 @@ Installation en exécutant la commande
 ```
 git clone git@github.com:WildCodeSchool-CDA-LYON-02-2024/P2-react-calendar-style.git
 ```
-
+<br/><br/>
 ## 🚀 Utilisation
 
 Exemple d'utilisation des composants:
@@ -56,6 +58,7 @@ Cet élément permet d'afficher un calendrier en mois et jour.
 | color               | Text        | Header            | Title   |
 | backgroundColor     | Text        | Header            | Title   |
 | fontFamily          | Text        | Header            | Title   |
+<br/><br/>
 
 ### WeekDaysCases
 
@@ -71,6 +74,7 @@ Cet élément permet d'afficher les jours de la semaine en français ou en angla
 | backgroundColor     | Text        | Header            | Title   |
 | fontFamily          | Text        | Header            | Title   |
 | theme               | Text        | Header            | Title   |
+<br/><br/>
 
 ### InputDate 
 <br/>
@@ -87,7 +91,7 @@ Il permet à l’utilisateur de sélectionner facilement une date via  un sélec
 | backgroundColor     | Text        | Header            | Title   |
 | fontFamily          | Text        | Header            | Title   |
 | theme               | Text        | Header            | Title   |
-
+<br/><br/>
 ### SaisonImg
 <br/>
 Cet élément permet d'afficher plusieurs images de manière alternée en fonction des saisons.
