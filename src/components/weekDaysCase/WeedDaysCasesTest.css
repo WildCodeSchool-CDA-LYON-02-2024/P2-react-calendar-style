@@ -1,0 +1,15 @@
+.wrapper-days > div {
+  width: 150px;
+  height: 20px;
+  line-height: 20px;
+  border: 1px solid black;
+  text-align: center;
+  background-color: yellow;
+  color:black;
+  
+}
+
+.wrapper-days {
+  display: flex;
+  gap: 10px;
+}
