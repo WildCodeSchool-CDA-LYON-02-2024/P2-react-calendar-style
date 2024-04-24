@@ -113,8 +113,9 @@ import "./CalendarCases2.css";
 import { months } from "../../services/months";
 import WeekDaysCases from "../weekDaysCase/WeekDaysCases";
 import { getNumberOfDaysInMonth, range } from "../../services";
+import PropTypes from "prop-types";
 
-export default function CalendarCases() {
+export default function CalendarCases({color, fontFamily, backgroundColor}) {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [selectedDate, setSelectedDate] = useState(null);
@@ -140,16 +141,33 @@ export default function CalendarCases() {
   const handleSelect = (event) => {
     if (event.target.id === "day") {
       setSelectedDate(
-        new Date(currentYear, currentMonth, event.target.getAttribute("data-day"))
+        new Date(
+          currentYear,
+          currentMonth,
+          event.target.getAttribute("data-day")
+        )
       );
     }
   };
 
   return (
     <section>
-      <div className="header">
+      <div
+        className="header"
+        style={{
+          color,
+          fontFamily,
+          backgroundColor,
+        }}
+      >
         <button onClick={prevMonth}>{" < "}</button>
-        <p>
+        <p
+          style={{
+            color,
+            fontFamily,
+            backgroundColor,
+          }}
+        >
           {months[currentMonth]} {currentYear}
         </p>
         <button onClick={nextMonth}>{" > "}</button>
@@ -157,10 +175,23 @@ export default function CalendarCases() {
       <div className="weekDays">
         <WeekDaysCases />
       </div>
-      <div className="monthContainer" onClick={handleSelect}>
+      <div
+        className="monthContainer"
+        onClick={handleSelect}
+        style={{
+          color,
+          fontFamily,
+          backgroundColor,
+        }}
+      >
         {range(1, getNumberOfDaysInMonth(currentYear, currentMonth) + 1).map(
           (day, i) => (
             <p
+              style={{
+                color,
+                fontFamily,
+                backgroundColor,
+              }}
               id="day"
               data-day={day}
               key={i}
@@ -179,3 +210,15 @@ export default function CalendarCases() {
     </section>
   );
 }
+
+CalendarCases.propTypes = {
+  color: PropTypes.string,
+  fontFamily: PropTypes.string,
+  backgroundColor: PropTypes.string,
+};
+
+CalendarCases.defaultProps = {
+  color: "black",
+  fontFamily: "Roboto",
+  backgroundColor: "white",
+};

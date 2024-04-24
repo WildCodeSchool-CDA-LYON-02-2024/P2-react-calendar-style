@@ -15,22 +15,26 @@ function App() {
     <>
       <div className="app">
         <h1>GrilleWeek</h1>
-        {/* <GrilleWeek /> 
-      <DayGrille/>
+        {/* <GrilleWeek />
+        <DayGrille />
         <InputDate
           value={date}
           setValue={setDate}
-          height='40px'
-          width='30%'
-          background='white'
-          color='green'
-          fontFamily='Arial'
-          border='3px solid grey'
-          borderRadius='5px'
+          height="40px"
+          width="30%"
+          background="white"
+          color="green"
+          fontFamily="Arial"
+          border="3px solid grey"
+          borderRadius="5px"
         />
-      
-      <WeekDaysCases /> */}
-        <CalendarCases theme="Standard" />
+
+        <WeekDaysCases /> */}
+        <CalendarCases
+          color="black"
+          fontFamily="Roboto"
+          backgroundColor="white"
+        />
         {/* <SaisonImg
         date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
         width='30%'
