@@ -4,6 +4,10 @@ import InputDate from './components/inputs/InputDate';
 import './App.css';
 import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
 import CalendarCases from './components/calendarCases/CalendarCases';
+import Grille from './components/grille/Grille';
+import GrilleWeek from './components/grille/Grille';
+import DayGrille from './components/grille/GrilleDay';
+// import GridCalendar from './components/gridCalendar/GridCalendar.jsx';
 
   
   function App(width) {
@@ -20,9 +24,9 @@ import CalendarCases from './components/calendarCases/CalendarCases';
          fontFamily= "Arial" 
          border= "3px solid grey"
          borderRadius= "5px"
-        
         />  
       </div>
+
       <WeekDaysCases
         color='yellow'
         backgroundColor='black'
@@ -38,8 +42,28 @@ import CalendarCases from './components/calendarCases/CalendarCases';
         height='500px'
         width='500px'
       />
+      {/* <>
+      <h1>Daily Grille</h1>
+          <Grille mode="daily" />
+          <h1>Weekly Grille</h1>
+          <Grille mode="weekly" />
+      </> */}
         <SaisonImg date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`} width= "30%"/>
+    
+    <div>
+    <div className="app">
+      <h1>Day Grille</h1>
+      <DayGrille />
+    </div>
+
+    <div className="app">
+      <h1>GrilleWeek</h1>
+      <GrilleWeek /> 
+    </div>
+
+    </div>
     </>
+    
   );
 }
 
