@@ -24,7 +24,6 @@ function InputDate({
     border: border,
     borderRadius: borderRadius,
     fontSize: fontSize
-
   }
  
 const handleChange = (e) => {
