@@ -125,8 +125,9 @@ export default function CalendarCases({
   const [mode, setMode] = useState("month");
   const [selectedMonth, setSelectedMonth] = useState(null);
   const [selection, setSelection] = useState(false);
+  const [selectedDays, setSelectedDays] = useState([]);
 
-  console.log(selection)
+  console.log(selectedDays);
 
   const handleMonthClick = (index) => {
     setSelectedMonth(language === "fr" ? monthsFr[index] : months[index]);
@@ -146,10 +147,36 @@ export default function CalendarCases({
   }, [theme]);
 
   const handleSelect = (event) => {
-    console.log(event.target.innerHTML + " " + selectedMonth.name);
-    
-      selection === false ? setSelection(true) : setSelection(false);
-    
+    const selectedDay = event.target;
+    const dayIndex = parseInt(selectedDay.textContent);
+    if (!selectedDays.includes(dayIndex)) {
+      setSelectedDays([...selectedDays, dayIndex]);
+      selectedDay.style.backgroundColor = "blue";
+    } else {
+      const updatedSelectedDays = selectedDays.filter(
+        (day) => day !== dayIndex 
+      );
+      setSelectedDays(updatedSelectedDays);
+      selectedDay.style.backgroundColor = backgroundColor;
+    }
+    setSelection(true);
+  };
+
+  const handleMouseMove = (event) => {
+    if (selection === true) {
+      handleSelect(event);
+    }
+  };
+
+  const newClick = () => {
+    selectedDays.filter(
+      (day) => day !== selectedDays
+    );
+    console.log("newclick");
+  };
+
+  const handleMouseUp = (event) => {
+    setSelection(false);
   };
 
   return (
@@ -189,10 +216,12 @@ export default function CalendarCases({
       {mode === "days" && (
         <div className="monthContainer">
           <h2>{selectedMonth.name}</h2>
-          <div className="daysContainer">
+          <div onClick={newClick} className="daysContainer">
             {Array.from({ length: selectedMonth.nbDays }, (_, index) => (
               <div
-                onClick={handleSelect}
+                onMouseMove={handleMouseMove}
+                onMouseDown={handleSelect}
+                onMouseUp={handleMouseUp}
                 style={{
                   color,
                   fontFamily,
@@ -201,7 +230,7 @@ export default function CalendarCases({
                   width,
                 }}
                 key={index}
-                className={(selection === false ? "days" : "selected")}
+                className="days"
               >
                 {index + 1}
               </div>
