@@ -2,12 +2,14 @@ import {useState} from 'react'
 import {useEffect} from "react"
 import PropTypes from "prop-types";
 import "../gridCalendar/gridCalendar.css"
+import { monthsFr } from '../../services/months';
+import { daysFr } from '../../services/weekDays';
  
 function GrilleDay({value, setValue}) {
 
-    const days = ["samedi", "dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi"]
+    // const days = ["samedi", "dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi"]
     const hours = ["00h00","01h00","02h00","03h00","04h00","05h00","06h00","07h00","08h00","09h00","10h00","11h00","12h00","13h00","14h00","15h00","16h00","17h00","18h00","19h00","20h00","21h00","22h00","23h00"]
-    const mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
+    // const mois = ["Janvier", "Février", "Mars", "Avril", "Mai", "Juin", "Juillet", "Août", "Septembre", "Octobre", "Novembre", "Décembre"];
 
     const [currentPage, setCurrentPage] = useState(1);
     const itemsPerPage = 1;
@@ -31,14 +33,16 @@ function GrilleDay({value, setValue}) {
       return days;
     };
   
-    const daysInMonth = getDaysInMonth(value?.getMonth(), value?.getFullYear());
+  const daysInMonth = getDaysInMonth(value?.getMonth(), value?.getFullYear());
+
     
    
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, daysInMonth?.length);
   
     
-    const daysItems = daysInMonth?.slice(startIndex, endIndex);
+  const daysItems = daysInMonth?.slice(startIndex, endIndex);
+  
   
 
     const nextPage = () => {
@@ -56,8 +60,8 @@ function GrilleDay({value, setValue}) {
 
     const getOnDay = (day) => {
 
-    let jour = days[day?.getDay()];
-    let moisEnLettres = mois[day?.getMonth()];
+    let jour = daysFr[day?.getDay()];
+    let moisEnLettres = monthsFr[day?.getMonth()];
     let annee = day?.getFullYear();
     return `${jour} ${day.getDate()} ${moisEnLettres} ${annee}`;
     }

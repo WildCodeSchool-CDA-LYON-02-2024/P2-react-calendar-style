@@ -10,7 +10,7 @@ function Grille({value, setValue}) {
 
   const styleActive = (val) => {
     if(grid != val){
-     return {background: 'white', color: '#00012e'}
+     return {background: 'yellow', color: '#00012e'}
     }else {
       return {}
     }

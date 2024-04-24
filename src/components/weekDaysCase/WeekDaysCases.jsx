@@ -17,9 +17,9 @@ export default function WeekDaysCases({
   const selectedLanguage = english ? days : daysFr;
 
   return (
-    <div className='wrapper-days'>
+    <tr className='wrapper-days'>
       {selectedLanguage.map((days, i) => (
-        <div
+        <th
           key={i}
           style={
             selectedTheme
@@ -43,9 +43,9 @@ export default function WeekDaysCases({
           }
         >
           {days}
-        </div>
+        </th>
       ))}
-    </div>
+    </tr>
   );
 }
 

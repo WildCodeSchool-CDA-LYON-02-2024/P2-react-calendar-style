@@ -1,11 +1,12 @@
 import { useState } from 'react';
-import SaisonImg from './components/saison_img/SaisonImg';
+
 import InputDate from './components/inputs/InputDate';
 import './App.css';
+
+import GrilleSdp from './components/calendarCases/grilleSdp/GrilleSdp.jsx';
 import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
-import CalendarCases from './components/calendarCases/CalendarCases';
-import GrilleWeek from './components/grille/Grille';
-import DayGrille from './components/grille/GrilleDay';
+
+
 // import GridCalendar from './components/gridCalendar/GridCalendar.jsx';
 
 function App() {
@@ -16,8 +17,7 @@ function App() {
 
     <div className="app">
       <h1>GrilleWeek</h1>
-      <GrilleWeek /> 
-      <DayGrille/>
+
     
         <InputDate
           value={date}
@@ -31,12 +31,12 @@ function App() {
           borderRadius='5px'
         />
       
-      <WeekDaysCases />
-      <CalendarCases theme='Standard' />
-      <SaisonImg
-        date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
-        width='30%'
-      />
+          
+        <GrilleSdp english WeekDaysCases={WeekDaysCases} />
+
+    
+      
+     
    
       </div>
       </>
