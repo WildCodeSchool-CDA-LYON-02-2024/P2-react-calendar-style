@@ -175,7 +175,7 @@ export default function CalendarCases({
     console.log("newclick");
   };
 
-  const handleMouseUp = (event) => {
+  const handleMouseUp = () => {
     setSelection(false);
   };
 
