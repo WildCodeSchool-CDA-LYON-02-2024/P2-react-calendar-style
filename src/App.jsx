@@ -1,24 +1,22 @@
-import { useState } from 'react';
-import SaisonImg from './components/saison_img/SaisonImg';
-import InputDate from './components/inputs/InputDate';
-import './App.css';
-import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
-import CalendarCases from './components/calendarCases/CalendarCases';
-import GrilleWeek from './components/grille/Grille';
-import DayGrille from './components/grille/GrilleDay';
+// import { useState } from 'react';
+// import SaisonImg from './components/saison_img/SaisonImg';
+// import InputDate from './components/inputs/InputDate';
+// import './App.css';
+// import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
+import CalendarCases from "./components/calendarCases/CalendarCases";
+// import GrilleWeek from './components/grille/Grille';
+// import DayGrille from './components/grille/GrilleDay';
 // import GridCalendar from './components/gridCalendar/GridCalendar.jsx';
 
 function App() {
-  const currentDate = new Date();
-  const [date, setDate] = useState(currentDate);
+  // const currentDate = new Date();
+  // const [date, setDate] = useState(currentDate);
   return (
     <>
-
-    <div className="app">
-      <h1>GrilleWeek</h1>
-      <GrilleWeek /> 
+      <div className="app">
+        <h1>GrilleWeek</h1>
+        {/* <GrilleWeek /> 
       <DayGrille/>
-    
         <InputDate
           value={date}
           setValue={setDate}
@@ -31,15 +29,15 @@ function App() {
           borderRadius='5px'
         />
       
-      <WeekDaysCases />
-      <CalendarCases theme='Standard' />
-      <SaisonImg
+      <WeekDaysCases /> */}
+        <CalendarCases theme="Standard" />
+        {/* <SaisonImg
         date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
         width='30%'
       />
-   
+    */}
       </div>
-      </>
+    </>
   );
 }
 
