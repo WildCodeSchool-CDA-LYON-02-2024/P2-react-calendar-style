@@ -124,6 +124,9 @@ export default function CalendarCases({
 }) {
   const [mode, setMode] = useState("month");
   const [selectedMonth, setSelectedMonth] = useState(null);
+  const [selection, setSelection] = useState(false);
+
+  console.log(selection)
 
   const handleMonthClick = (index) => {
     setSelectedMonth(language === "fr" ? monthsFr[index] : months[index]);
@@ -141,6 +144,13 @@ export default function CalendarCases({
         });
     }
   }, [theme]);
+
+  const handleSelect = (event) => {
+    console.log(event.target.innerHTML + " " + selectedMonth.name);
+    
+      selection === false ? setSelection(true) : setSelection(false);
+    
+  };
 
   return (
     <div
@@ -182,6 +192,7 @@ export default function CalendarCases({
           <div className="daysContainer">
             {Array.from({ length: selectedMonth.nbDays }, (_, index) => (
               <div
+                onClick={handleSelect}
                 style={{
                   color,
                   fontFamily,
@@ -190,7 +201,7 @@ export default function CalendarCases({
                   width,
                 }}
                 key={index}
-                className="days"
+                className={(selection === false ? "days" : "selected")}
               >
                 {index + 1}
               </div>
@@ -218,6 +229,3 @@ CalendarCases.defaultProps = {
   backgroundColor: "white",
   theme: "Standard",
 };
-
-
-
