@@ -12,7 +12,8 @@ function InputDate({
   width,
   border, 
   borderRadius,
-  fontSize
+  fontSize,
+  
 }) {
 
   const styleElement = {
@@ -28,11 +29,14 @@ function InputDate({
  
 const handleChange = (e) => {
   setValue(new Date(e.target.value));
-  };
+};
+  
+ 
 
   // Convertir la valeur en chaîne au format ISO si elle est une instance de Date
   const dateValue = value instanceof Date ? value.toISOString().split('T')[0] : value;
-
+  console.log(dateValue, 'value input component');
+  console.log(value,"value")
   return (
     <div>
       <input
