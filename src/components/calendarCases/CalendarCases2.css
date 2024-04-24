@@ -4,7 +4,7 @@ section{
 
 .header{
 display: flex;
-justify-content: space-evenly;
+justify-content: space-between;
 align-items: center;
 }
 
@@ -12,10 +12,26 @@ align-items: center;
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-weight: bold;
+  .active{
+    background-color: lightpink;
+  }
 }
 
 .weekDays{
-display: flex;
-justify-content: center;
-float: left;
+  display: grid;
+  grid-template-columns: (1fr);
+}
+
+button{
+  cursor: pointer;
+}
+
+p{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 2rem;
+  height: 2rem;
+  margin-left: 1rem;
+  border-radius: 50%;
 }

@@ -117,6 +117,7 @@ import { getNumberOfDaysInMonth, range } from "../../services";
 export default function CalendarCases() {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+  const [selectedDate, setSelectedDate] = useState(null);
 
   const nextMonth = () => {
     if (currentMonth < 11) {
@@ -135,22 +136,43 @@ export default function CalendarCases() {
       setCurrentYear((prev) => prev - 1);
     }
   };
+
+  const handleSelect = (event) => {
+    if (event.target.id === "day") {
+      setSelectedDate(
+        new Date(currentYear, currentMonth, event.target.getAttribute("data-day"))
+      );
+    }
+  };
+
   return (
     <section>
       <div className="header">
-        <div onClick={prevMonth}>{" < "}</div>
+        <button onClick={prevMonth}>{" < "}</button>
         <p>
           {months[currentMonth]} {currentYear}
         </p>
-        <div onClick={nextMonth}>{" > "}</div>
+        <button onClick={nextMonth}>{" > "}</button>
       </div>
       <div className="weekDays">
         <WeekDaysCases />
       </div>
-      <div className="monthContainer">
+      <div className="monthContainer" onClick={handleSelect}>
         {range(1, getNumberOfDaysInMonth(currentYear, currentMonth) + 1).map(
           (day, i) => (
-            <p key={i}>{day}</p>
+            <p
+              id="day"
+              data-day={day}
+              key={i}
+              className={
+                selectedDate?.getTime() ===
+                new Date(currentYear, currentMonth, day).getTime()
+                  ? "active"
+                  : ""
+              }
+            >
+              {day}
+            </p>
           )
         )}
       </div>
