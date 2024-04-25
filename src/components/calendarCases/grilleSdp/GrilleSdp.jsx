@@ -11,16 +11,15 @@ function GrilleSdp({ WeekDaysCases }) {
 
   // let getDate = value.getDate();
 
-  const [selectedDay, setSelectedDay] = useState(0);
-  let indexStart = 0;
-  let indexEnd = 7;
+  const [selectedDay, setSelectedDay] = useState(1);
+  const indexStart = Math.floor((selectedDay - 1) / 7) * 7;
 
-  function prevDay() {
-    let calculPrev = selectedDay;
-    calculPrev -= 1;
-    setSelectedDay(calculPrev);
-  }
-
+ function prevDay() {
+     let calculNext = selectedDay;
+     calculNext -= 1;
+     setSelectedDay(calculNext);
+ }
+  
   function nextDay() {
     let calculNext = selectedDay;
     calculNext += 1;
@@ -29,20 +28,7 @@ function GrilleSdp({ WeekDaysCases }) {
 
   function handleClick(day) {
     setSelectedDay(jours[day]);
-
   }
-  
-  // while (selectedDay > 7 && selectedDay< jours.length) {
-  //   setIndexStart( indexStart + 7);
-  //   setIndexEnd(indexEnd + 7);
-  // }
-
-if (selectedDay === 8)  {
- let indexStart = indexStart + 7;
-
-} else {
-  console.log('no');
-}
 
   return (
     <div>
@@ -50,7 +36,7 @@ if (selectedDay === 8)  {
         <thead>
           <th rowSpan='2'>
             {' '}
-            <button type='button' onClick={prevDay}>
+            <button type='button' disabled={selectedDay <= 1} onClick={prevDay}>
               {'<<'}
             </button>
           </th>
@@ -60,33 +46,28 @@ if (selectedDay === 8)  {
           </th>
 
           <th rowSpan='2'>
-            <button type='button' onClick={nextDay}>
+            <button
+              type='button'
+              disabled={selectedDay >= jours.length}
+              onClick={nextDay}
+            >
               {'>>'}
             </button>
           </th>
 
           <tr>
-            {jours
-              .slice(
-                selectedDay+1 % 7 === 0
-                  ? (indexStart = indexStart + 7)
-                  : indexStart,
-                selectedDay % 7 === 0
-                  ? (indexEnd = indexEnd + 7)
-                  : indexEnd
-              )
-              .map((jour, i) => (
-                <th
-                  key={i}
-                  className={jour}
-                  style={{
-                    backgroundColor: jour === selectedDay ? 'blue' : null,
-                  }}
-                  onClick={() => handleClick(i)}
-                >
-                  <span>{jour}</span>
-                </th>
-              ))}
+            {jours.slice(indexStart, indexStart + 7).map((jour, i) => (
+              <th
+                key={i}
+                className={jour}
+                style={{
+                  backgroundColor: jour === selectedDay ? 'blue' : null,
+                }}
+                onClick={() => handleClick(i)}
+              >
+                <span>{jour}</span>
+              </th>
+            ))}
           </tr>
         </thead>
         <tbody>
