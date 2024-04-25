@@ -22,8 +22,8 @@ function App() {
       <div className='app'>
         <h1>GrilleWeek</h1>
 
-        <InputDate
-          value={date}
+        {/* <InputDate
+          // value={date}
           setValue={setDate}
           height='40px'
           width='30%'
@@ -33,7 +33,7 @@ function App() {
           border='3px solid grey'
           borderRadius='5px'
        
-        />
+        /> */}
 
         <GrilleSdp WeekDaysCases={WeekDaysCases} value={date} />
       </div>
