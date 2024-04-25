@@ -11,31 +11,23 @@ function GrilleSdp({ WeekDaysCases }) {
 
   // let getDate = value.getDate();
 
-  const [currentDay, setCurrentDay] = useState(1);
   const [selectedDay, setSelectedDay] = useState(0);
 
-
-
-
-
- 
   function prevDay() {
-    setCurrentDay(currentDay - 1);
+    let calculPrev = selectedDay;
+    calculPrev -= 1;
+    setSelectedDay(calculPrev);
   }
-
-
 
   function nextDay() {
-    setCurrentDay(currentDay + 1);
+    let calculNext = selectedDay;
+    calculNext += 1;
+    setSelectedDay(calculNext);
   }
-
 
   function handleClick(day) {
     setSelectedDay(jours[day]);
-    
   }
-
-  console.log(selectedDay, "selectionné")
 
   return (
     <div>
@@ -63,9 +55,10 @@ function GrilleSdp({ WeekDaysCases }) {
               <th
                 key={i}
                 className={jour}
-               
-                style={{backgroundColor: jour === selectedDay ? "blue" : null}}
-                onClick={()=>handleClick(i)}
+                style={{
+                  backgroundColor: jour === selectedDay ? 'blue' : null,
+                }}
+                onClick={() => handleClick(i)}
               >
                 <span>{jour}</span>
               </th>
@@ -89,5 +82,4 @@ export default GrilleSdp;
 GrilleSdp.propTypes = {
   english: PropTypes.bool,
   WeekDaysCases: PropTypes.elementType,
- 
 };
