@@ -1,8 +1,8 @@
-import {useState} from 'react'
-import {useEffect} from "react"
+import  {useState, useEffect} from 'react'
 import PropTypes from "prop-types";
-import "../gridCalendar/gridCalendar.css"
- 
+import "./gridCalendar.css";
+import Btn from "../btns/Btn";
+
 function GrilleDay({value, setValue}) {
 
     const days = ["samedi", "dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi"]
@@ -13,9 +13,9 @@ function GrilleDay({value, setValue}) {
     const itemsPerPage = 1;
 
     useEffect(() => {
-      const pageCurr = value?.getDate() / itemsPerPage
+      const pageCurr = value.getDate() / itemsPerPage;
       setCurrentPage(Math.ceil(pageCurr));
-    }, [])
+    }, [value])
   
     const handleDateClick = (date) => {
       setValue(date);
@@ -33,19 +33,16 @@ function GrilleDay({value, setValue}) {
   
     const daysInMonth = getDaysInMonth(value?.getMonth(), value?.getFullYear());
     
-   
     const startIndex = (currentPage - 1) * itemsPerPage;
     const endIndex = Math.min(startIndex + itemsPerPage, daysInMonth?.length);
   
-    
+ 
     const daysItems = daysInMonth?.slice(startIndex, endIndex);
-  
-
+    
     const nextPage = () => {
       setCurrentPage(prevPage => prevPage + 1);
     };
-  
-    
+   
     const prevPage = () => {
       setCurrentPage(prevPage => prevPage - 1);
     };
@@ -62,53 +59,58 @@ function GrilleDay({value, setValue}) {
     return `${jour} ${day.getDate()} ${moisEnLettres} ${annee}`;
     }
     return (
-      <div className='row'>
-        <table className="table">
-         <thead>
-          <tr>
-           <th>
-             <button className='btn' onClick={prevPage} disabled={currentPage === 1}>
-               {"<<"}
-             </button>
-           </th>
-          {daysItems.map((day,i) => 
-           <th 
-               key={i} 
-               className={"thDay " + (day.getDate() == value?.getDate() ? "daySelected" : "")}
-               onClick={() => handleDateClick(day)}
-               >
-               <span >{getOnDay(day)}</span>
-           </th>
-          )}
-           <th>
-             <button className='btn' onClick={nextPage} disabled={endIndex >= daysInMonth.length} >
-               {">>"}
-             </button>
-          </th>
+        <div className='row'>
+            <table className="table">
+            <thead>
+            <tr>
+            <th>
+                <Btn onClick={prevPage} disabled={currentPage === 1}
+                     padding='5px 32px'
+                >
+                  {"<<"}
+                </Btn>
+            </th>
+            {daysItems.map((day,i) => 
+            <th 
+                key={i} 
+                className={"thDay " + (day.getDate() == value?.getDate() ? "daySelected" : "")}
+                onClick={() => handleDateClick(day)}
+                >
+                <span className='text' >{getOnDay(day)}</span>
+            </th>
+            )}
+            <th>
+                <Btn onClick={nextPage} disabled={endIndex >= daysInMonth.length}
+                     padding='5px 32px'
+                >
+                  {">>"}
+                </Btn>
+            </th>
+            </tr>
+        </thead>
+        <tbody>
+        {hours.map((hour, index) =>
+            <tr key={index}  className='thDay'>
+            <td className='tableHour'><span className='text'>{hour}</span></td>
+            {daysItems.map((day,i) => 
+            <td 
+                className={day.getDate() == value?.getDate() ? "daySelected" : ""}  
+                key={i} 
+                onClick={() => selectHour(day, hour)}>
+            </td>
+            )}
         </tr>
-      </thead>
-      <tbody>
-       {hours.map((hour, index) =>
-         <tr key={index}>
-         <td className='tableHour'>{hour}</td>
-        {daysItems.map((day,i) => 
-          <td 
-               className={day.getDate() == value?.getDate() ? "daySelected" : ""}  
-               key={i} 
-               onClick={() => selectHour(day, hour)}>
-           </td>
-         )}
-    </tr>
-     )}
-    </tbody>
-  </table>
-</div>
-);
+        )}
+        </tbody>
+    </table>
+    </div>
+    );
 }
 
 GrilleDay.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]).isRequired,
-    setValue: PropTypes.func.isRequired
+    value: PropTypes.instanceOf(Date),
+    setValue: PropTypes.func.isRequired,
+  
 }
 
 export default GrilleDay

@@ -2,7 +2,7 @@ import { useState} from 'react';
 import {useEffect} from "react"
 import PropTypes from "prop-types";
 import "./gridCalendar.css"
-
+import Btn from "../btns/Btn";
 
 function GridCalendar({value, setValue}) {
 
@@ -11,16 +11,12 @@ function GridCalendar({value, setValue}) {
 
   const itemsPerPage = 7;
   const [currentPage, setCurrentPage] = useState(1);
-
-  //const year = value.getFullYear();
-  //const month = String(value.getMonth() + 1).padStart(2, '0');
-  //const day = String(value.getDate()).padStart(2, '0');  
-  //console.log(${year}-${month}-${day});
+  
 
   useEffect(() => {
     const pageCurr = value?.getDate() / itemsPerPage
     setCurrentPage(Math.ceil(pageCurr));
-  },[])
+  },[value])
 
   const handleDateClick = (date) => {
     setValue(date);
@@ -60,22 +56,26 @@ function GridCalendar({value, setValue}) {
   }
   return (
     <div className='row'>
-      <div> <span className="monthSelect">{value.toLocaleDateString('default', { month: 'long', year: 'numeric' })}</span></div>
+      <div className="monthSelect">
+        {value.toLocaleDateString('default', { month: 'long', year: 'numeric' })}
+      </div>
       <table className="table">
   <thead>
-    <tr>
+    <tr className='thDay'>
         <th></th>
-        {days.map((d,i) => 
-          <th className='tabledays'  key={i}>{d}</th>
+        {days.map((day,index) => 
+          <th className='tabledays'  key={index}><span>{day}</span></th>
         )}     
     <th></th>
     </tr>
     <tr>
    
     <th>
-    <button className='btn' onClick={prevPage} disabled={currentPage === 1}>
-    {"<<"}
-      </button>
+      <Btn onClick={prevPage} disabled={currentPage === 1}
+           padding='5px 32px'
+      >
+        {"<<"}
+      </Btn>
     </th>
         {daysItems.map((day,i) => 
           <th 
@@ -83,27 +83,28 @@ function GridCalendar({value, setValue}) {
              className={day.getDate() == value.getDate() ? "daySelected" : ""}
              onClick={() => handleDateClick(day)}
              >
-             <span >{day.getDate()}</span>
+             <span className='text' >{day.getDate()}</span>
           </th>
         )}
          <th>
-         <button className='btn' onClick={nextPage} disabled={endIndex >= daysInMonth.length} >
+      <Btn onClick={nextPage} disabled={endIndex >= daysInMonth.length}
+           padding='5px 32px'
+      >
        {">>"}
-      </button>
+      </Btn>
          </th>
     </tr>
   </thead>
-  <tbody>
+  <tbody className='scrolled'>
     {hours.map((hour, index) =>
-    <tr key={index}>
-    <td className='tableHour'>{hour}</td>
+    <tr key={index} className='thDay'>
+    <td className='tableHour'><span className='text'>{hour}</span></td>
     
     {daysItems.map((day,i) => 
           <td 
              className={day.getDate() == value.getDate() ? "daySelected" : ""}  
              key={i} 
              onClick={() => selectHour(day, hour)}>
-              {/* <span >{day.getDate()}</span>  */}
           </td>
         )}
   </tr>

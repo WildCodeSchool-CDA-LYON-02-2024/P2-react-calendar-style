@@ -1,0 +1,15 @@
+
+.main {
+    width: 100%;
+    display: flex;
+}
+
+.row1 {
+  width: 30%;
+  padding: 50px;
+}
+
+.row2 {
+    width: 70%;
+    padding: 50px;
+  }

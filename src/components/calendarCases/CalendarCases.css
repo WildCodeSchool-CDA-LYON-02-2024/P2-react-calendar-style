@@ -22,7 +22,6 @@
   border-bottom: 2px solid lightblue;
   text-align: center;
   height: 15%;
-
 }
 
 .monthContainer {
@@ -33,6 +32,7 @@
   align-items: center;
   height: 100%;
 }
+
 button {
   font-weight: bold;
   font-size: 1.3rem;
@@ -40,7 +40,6 @@ button {
   border: none;
   padding: 1rem 0 1rem 0;
   cursor: pointer;
-  
 }
 
 .daysContainer {
