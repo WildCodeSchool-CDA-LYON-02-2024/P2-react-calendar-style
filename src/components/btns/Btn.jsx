@@ -52,7 +52,7 @@ Btn.propTypes = {
     onClick: PropTypes.func,
     type: PropTypes.string,
     disabled: PropTypes.bool,
-    children: PropTypes.element  
+    children: PropTypes.string  
   };
 
   export default Btn;
@@ -68,5 +68,5 @@ Btn.propTypes = {
     fontSize: "20px",
     type:"button" || "submit" || "reset",
     disabled: false,
-    children: "button"
+    children: "button" || ">>" ||"<<",
   }
