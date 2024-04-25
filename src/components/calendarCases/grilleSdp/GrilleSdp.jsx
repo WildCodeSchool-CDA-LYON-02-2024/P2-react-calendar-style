@@ -3,43 +3,39 @@ import PropTypes from 'prop-types';
 import './GrilleSdp.css';
 import { useState } from 'react';
 
-function GrilleSdp({ WeekDaysCases, value }) {
+function GrilleSdp({ WeekDaysCases }) {
   const jours = [
     1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11, 12, 13, 14, 15, 16, 17, 18, 19, 20, 21,
     22, 23, 24, 25, 26, 27, 28, 29, 30, 31,
   ];
 
-  let getDate = value.getDate();
+  // let getDate = value.getDate();
 
   const [currentDay, setCurrentDay] = useState(1);
+  const [selectedDay, setSelectedDay] = useState(0);
 
-  // const selectedDay = currentDay !== getDate ? currentDay : getDate;
-  // const selectedDay= getDate || currentDay
 
-  console.log(typeof getDate);
 
-  // function prevDay() {
-  //   if (selectedDay === getDate) {
-  //     setCurrentDay(getDate - 1);
-  //   } else {
-  //     setCurrentDay(currentDay - 1);
-  //   }
-  // }
+
+
+ 
   function prevDay() {
     setCurrentDay(currentDay - 1);
   }
 
-  // function nextDay() {
-  //   if (selectedDay === getDate) {
-  //     setCurrentDay(getDate + 1);
-  //   } else {
-  //     setCurrentDay(currentDay + 1);
-  //   }
-  // }
+
 
   function nextDay() {
     setCurrentDay(currentDay + 1);
   }
+
+
+  function handleClick(day) {
+    setSelectedDay(jours[day]);
+    
+  }
+
+  console.log(selectedDay, "selectionné")
 
   return (
     <div>
@@ -67,9 +63,9 @@ function GrilleSdp({ WeekDaysCases, value }) {
               <th
                 key={i}
                 className={jour}
-                style={{
-                  backgroundColor: jour === currentDay || jour === getDate ? 'blue' : null,
-                }}
+               
+                style={{backgroundColor: jour === selectedDay ? "blue" : null}}
+                onClick={()=>handleClick(i)}
               >
                 <span>{jour}</span>
               </th>
@@ -93,5 +89,5 @@ export default GrilleSdp;
 GrilleSdp.propTypes = {
   english: PropTypes.bool,
   WeekDaysCases: PropTypes.elementType,
-  value: PropTypes.number,
+ 
 };
