@@ -5,9 +5,16 @@ import WeekDaysCases from "../weekDaysCase/WeekDaysCases";
 import { getNumberOfDaysInMonth, range } from "../../services";
 import PropTypes from "prop-types";
 
-export default function CalendarCases({ color, fontFamily, backgroundColor }) {
-  const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
-  const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
+export default function CalendarCases({
+  currentMonth,
+  setCurrentMonth,
+  currentYear,
+  setCurrentYear,
+  color,
+  fontFamily,
+  backgroundColor,
+}) {
+
   const [selectedDate, setSelectedDate] = useState(null);
 
   const nextMonth = () => {
@@ -102,6 +109,7 @@ export default function CalendarCases({ color, fontFamily, backgroundColor }) {
 }
 
 CalendarCases.propTypes = {
+  value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
   color: PropTypes.string,
   fontFamily: PropTypes.string,
   backgroundColor: PropTypes.string,

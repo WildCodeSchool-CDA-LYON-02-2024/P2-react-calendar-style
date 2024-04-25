@@ -11,9 +11,9 @@ function App() {
         <DayGrille />
         */}
         <SideCalendar
-        // color="black"
-        // fontFamily="Roboto"
-        // backgroundColor="white"
+          color="red"
+          // fontFamily="Roboto"
+          // backgroundColor="white"
         />
       </div>
     </>
