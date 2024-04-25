@@ -55,7 +55,7 @@ function SaisonImg({
   };
 
   return (
-    <div>
+    <div className="ImageContainer">
       <Image src={setSaisons(date)} style={styleElement} />
     </div>
   );
@@ -71,8 +71,6 @@ SaisonImg.propTypes = {
 
   SaisonImg.defaultProps = {
     date: new Date(),
-    height: "360px", 
-    width: "480px",
     border: "5px solid grey",
     borderRadius: "10px",
   };

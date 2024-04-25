@@ -1,6 +1,9 @@
+.ImageContainer {
+  height: 30vh;
+}
 
 .img {
-    margin-top: 10px;
-    width: 40%;
-    height: auto;
+  margin-top: 10px;
+
+  width: 100%;
 }

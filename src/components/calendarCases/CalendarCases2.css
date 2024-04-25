@@ -6,6 +6,11 @@ section{
 display: flex;
 justify-content: space-between;
 align-items: center;
+padding: 1rem;
+}
+
+.header > p {
+  width: 10rem;
 }
 
 .monthContainer {

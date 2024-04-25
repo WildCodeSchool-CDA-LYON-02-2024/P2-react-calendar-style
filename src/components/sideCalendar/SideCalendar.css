@@ -1,0 +1,15 @@
+.leftContainer {
+  width: 100%;
+}
+
+@media screen and (width > 768px) {
+  .leftContainer {
+    width: 50vw;
+  }
+
+  @media screen and (width > 1024px) {
+    .leftContainer {
+      width: 30vw;
+    }
+  }
+}
