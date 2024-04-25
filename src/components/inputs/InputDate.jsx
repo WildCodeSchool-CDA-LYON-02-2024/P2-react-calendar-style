@@ -32,7 +32,7 @@ const handleChange = (e) => {
 
   // Convertir la valeur en chaîne au format ISO si elle est une instance de Date
   const dateValue = value instanceof Date ? value.toISOString().split('T')[0] : value;
-
+console.log(dateValue)
   return (
     <div>
       <input

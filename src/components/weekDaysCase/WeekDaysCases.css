@@ -1,12 +1,14 @@
 .wrapper-days > div {
-  width: 50px;
+  width: 70%;
   height: 20px;
   line-height: 20px;
   border: 1px solid black;
   text-align: center;
+  margin: auto;
+
 }
 
 .wrapper-days {
-  display: flex;
-  gap: 10px;
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
 }

@@ -10,6 +10,7 @@ export default function SideCalendar({ color, fontFamily, backgroundColor }) {
   const [currentYear, setCurrentYear] = useState(date.getFullYear());
   const [currentMonth, setCurrentMonth] = useState(date.getMonth());
 
+
   console.log(date);
   return (
     <>

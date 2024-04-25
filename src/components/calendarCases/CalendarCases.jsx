@@ -14,7 +14,6 @@ export default function CalendarCases({
   fontFamily,
   backgroundColor,
 }) {
-
   const [selectedDate, setSelectedDate] = useState(null);
 
   const nextMonth = () => {
