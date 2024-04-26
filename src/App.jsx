@@ -1,4 +1,3 @@
-// import './App.css';
 import SideCalendar from "./components/sideCalendar/SideCalendar";
 // import GrilleWeek from './components/grille/Grille';
 // import DayGrille from './components/grille/GrilleDay';
@@ -6,7 +5,7 @@ import SideCalendar from "./components/sideCalendar/SideCalendar";
 function App() {
   return (
     <>
-      <div className="app">
+      <div>
         {/* <GrilleWeek />
         <DayGrille />
         */}
