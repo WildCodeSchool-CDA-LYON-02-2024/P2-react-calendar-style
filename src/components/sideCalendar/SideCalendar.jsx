@@ -10,7 +10,9 @@ export default function SideCalendar({
   fontFamily,
   backgroundColor,
   border,
-  display,
+  InputDisplay,
+  CalendarDisplay,
+  SaisonImgDisplay,
 }) {
   const [date, setDate] = useState(new Date());
   const [currentYear, setCurrentYear] = useState(date.getFullYear());
@@ -27,7 +29,7 @@ export default function SideCalendar({
           color={color}
           fontFamily={fontFamily}
           border={border}
-          display={display}
+          display={InputDisplay}
         />
         <CalendarCases
           currentMonth={currentMonth}
@@ -37,10 +39,12 @@ export default function SideCalendar({
           color={color}
           fontFamily={fontFamily}
           backgroundColor={backgroundColor}
+          display={CalendarDisplay}
         />
         <SaisonImg
           date={`${currentYear}-${currentMonth + 1}-${date.getDate()}`}
           border={border}
+          display={SaisonImgDisplay}
         />
       </div>
     </>
@@ -52,5 +56,7 @@ SideCalendar.propTypes = {
   fontFamily: PropTypes.string,
   backgroundColor: PropTypes.string,
   border: PropTypes.string,
-  display: PropTypes.string,
+  InputDisplay: PropTypes.string,
+  CalendarDisplay: PropTypes.string,
+  SaisonImgDisplay: PropTypes.string,
 };

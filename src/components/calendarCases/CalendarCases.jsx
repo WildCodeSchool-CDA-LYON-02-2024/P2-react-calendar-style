@@ -13,6 +13,7 @@ export default function CalendarCases({
   color,
   fontFamily,
   backgroundColor,
+  display,
 }) {
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -47,7 +48,11 @@ export default function CalendarCases({
   };
 
   return (
-    <section>
+    <section
+      style={{
+        display,
+      }}
+    >
       <div
         className="header"
         style={{
@@ -116,6 +121,7 @@ CalendarCases.propTypes = {
   setCurrentMonth: PropTypes.func,
   currentYear: PropTypes.number,
   setCurrentYear: PropTypes.func,
+  display: PropTypes.string,
 };
 
 // CalendarCases.defaultProps = {
