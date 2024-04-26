@@ -1,15 +1,12 @@
 .leftContainer {
+  display: flex;
+  flex-direction: column;
+  justify-content: flex-start;
+  align-items: center;
   width: 100%;
+  max-width: 31em;
+  min-width: 31rem;
+  height: 50rem;
 }
 
-@media screen and (width > 768px) {
-  .leftContainer {
-    width: 50vw;
-  }
 
-  @media screen and (width > 1024px) {
-    .leftContainer {
-      width: 30vw;
-    }
-  }
-}

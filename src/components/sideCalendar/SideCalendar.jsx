@@ -5,11 +5,16 @@ import SaisonImg from "../saison_img/SaisonImg";
 import PropTypes from "prop-types";
 import "./SideCalendar.css";
 
-export default function SideCalendar({ color, fontFamily, backgroundColor }) {
+export default function SideCalendar({
+  color,
+  fontFamily,
+  backgroundColor,
+  border,
+  display,
+}) {
   const [date, setDate] = useState(new Date());
   const [currentYear, setCurrentYear] = useState(date.getFullYear());
   const [currentMonth, setCurrentMonth] = useState(date.getMonth());
-
 
   console.log(date);
   return (
@@ -21,6 +26,8 @@ export default function SideCalendar({ color, fontFamily, backgroundColor }) {
           background={backgroundColor}
           color={color}
           fontFamily={fontFamily}
+          border={border}
+          display={display}
         />
         <CalendarCases
           currentMonth={currentMonth}
@@ -33,6 +40,7 @@ export default function SideCalendar({ color, fontFamily, backgroundColor }) {
         />
         <SaisonImg
           date={`${currentYear}-${currentMonth + 1}-${date.getDate()}`}
+          border={border}
         />
       </div>
     </>
@@ -43,4 +51,6 @@ SideCalendar.propTypes = {
   color: PropTypes.string,
   fontFamily: PropTypes.string,
   backgroundColor: PropTypes.string,
+  border: PropTypes.string,
+  display: PropTypes.string,
 };

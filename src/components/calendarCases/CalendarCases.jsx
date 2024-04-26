@@ -112,6 +112,10 @@ CalendarCases.propTypes = {
   color: PropTypes.string,
   fontFamily: PropTypes.string,
   backgroundColor: PropTypes.string,
+  currentMonth: PropTypes.number,
+  setCurrentMonth: PropTypes.func,
+  currentYear: PropTypes.number,
+  setCurrentYear: PropTypes.func,
 };
 
 // CalendarCases.defaultProps = {

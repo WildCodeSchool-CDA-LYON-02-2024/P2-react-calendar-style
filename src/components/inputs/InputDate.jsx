@@ -1,38 +1,39 @@
-
 import PropTypes from "prop-types";
 import "./inputDate.css";
 
 function InputDate({
-  value, 
-  setValue, 
-  fontFamily, 
-  background, 
+  value,
+  setValue,
+  fontFamily,
+  background,
   color,
-  height, 
+  height,
   width,
-  border, 
+  border,
   borderRadius,
-  fontSize
+  fontSize,
+  display,
 }) {
-
   const styleElement = {
     width: width,
-    height : height,
+    height: height,
     fontFamily: fontFamily,
     background: background,
     color: color,
     border: border,
     borderRadius: borderRadius,
-    fontSize: fontSize
-  }
- 
-const handleChange = (e) => {
-  setValue(new Date(e.target.value));
+    fontSize: fontSize,
+    display: display,
+  };
+
+  const handleChange = (e) => {
+    setValue(new Date(e.target.value));
   };
 
   // Convertir la valeur en chaîne au format ISO si elle est une instance de Date
-  const dateValue = value instanceof Date ? value.toISOString().split('T')[0] : value;
-console.log(dateValue)
+  const dateValue =
+    value instanceof Date ? value.toISOString().split("T")[0] : value;
+  console.log(dateValue);
   return (
     <div>
       <input
@@ -47,16 +48,18 @@ console.log(dateValue)
 }
 
 InputDate.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]).isRequired,
+  value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string])
+    .isRequired,
   setValue: PropTypes.func.isRequired,
-  height:PropTypes.number,
+  height: PropTypes.number,
   width: PropTypes.number,
   background: PropTypes.string,
   color: PropTypes.string,
-  fontFamily: PropTypes.string, 
-  border: PropTypes.string, 
+  fontFamily: PropTypes.string,
+  border: PropTypes.string,
   borderRadius: PropTypes.number,
-  fontSize: PropTypes.number
+  fontSize: PropTypes.number,
+  display: PropTypes.string,
 };
 
 export default InputDate;
@@ -68,5 +71,5 @@ InputDate.defaultProps = {
   fontFamily: "arial",
   border: "1px solid blue",
   borderRadius: "5px",
-  fontSize: "20px"
+  fontSize: "20px",
 };

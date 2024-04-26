@@ -71,7 +71,7 @@ SaisonImg.propTypes = {
 
   SaisonImg.defaultProps = {
     date: new Date(),
-    border: "5px solid grey",
+    border: "2px solid grey",
     borderRadius: "10px",
   };
 
