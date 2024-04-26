@@ -1,4 +1,4 @@
-##  |  Note : La librairie est toujours en cours de développement.
+## | Note : La librairie est toujours en cours de développement.
 
 ![mobile Calendar](./public/img/Calendar.png)
 
@@ -11,20 +11,23 @@
 - Installation
 - Utilisation
 - Composants :
-  - Description 
+  - Description
   - Capture image
   - Props
   - Code
 
 <br/><br/>
+
 ## 📦 Installation
 
 Installation en exécutant la commande
 
 ```
-git clone git@github.com:WildCodeSchool-CDA-LYON-02-2024/P2-react-calendar-style.git
+npm i react-calendar-style
 ```
+
 <br/><br/>
+
 ## 🚀 Utilisation
 
 Exemple d'utilisation des composants:
@@ -48,7 +51,7 @@ function App() {
 
 <br/>
 
-## ⚒️ Props
+## ⚒️ Composants
 
 ### CalendarCases
 
@@ -57,12 +60,14 @@ function App() {
 Cet élément permet d'afficher un calendrier en mois et jour.
 <br/><br/>
 
-| Nom de la propriété | Description | Valeur par défaut | Exemple |
-| ------------------- | ----------- | ----------------- | ------- |
-| language            | Title       | Header            | Title   |
-| color               | Text        | Header            | Title   |
-| backgroundColor     | Text        | Header            | Title   |
-| fontFamily          | Text        | Header            | Title   |
+| Nom de la propriété | Description                                                | Valeur par défaut        | Exemple           |
+| ------------------- | ---------------------------------------------------------- | ------------------------ | ----------------- |
+| language            | indique si la langue utilisée est l'anglais ou le français | `fr`                     | `"fr"` ou `"eng"` |
+| color               | contrôle la couleur du texte                               | couleur thème par défaut | `"black"`         |
+| backgroundColor     | contrôle la couleur du fond                                | couleur thème par défaut | `"white"`         |
+| fontFamily          | contrôle la police utilisée                                | police thème par défaut  | `"Arial"`         |
+| theme               | contrôle le thème                                          | `Default`                | `Default`         |
+
 <br/><br/>
 
 ### WeekDaysCases
@@ -72,39 +77,44 @@ Cet élément permet d'afficher un calendrier en mois et jour.
 Cet élément permet d'afficher les jours de la semaine en français ou en anglais en tenant compte du type de calendrier.
 <br/><br/>
 
-| Nom de la propriété | Description | Valeur par défaut | Exemple |
-| ------------------- | ----------- | ----------------- | ------- |
-| english             | indique si la langue utilisée est l'anglais ou le français       | `false`            | `true`   |
-| color               | contrôle la couleur        | couleur thème par défaut            |`"black"`   |
-| backgroundColor     | contrôle la couleur du fond       | couleur thème par défaut            | `white`   |
-| fontFamily          | contrôle la police utilisée        | police thème par défaut            | `Arial`   |
-| theme               | contrôle le thème       | `Default`           | `Default`   |
+| Nom de la propriété | Description                                                | Valeur par défaut        | Exemple   |
+| ------------------- | ---------------------------------------------------------- | ------------------------ | --------- |
+| english             | indique si la langue utilisée est l'anglais ou le français | `false`                  | `true`    |
+| color               | contrôle la couleur                                        | couleur thème par défaut | `"black"` |
+| backgroundColor     | contrôle la couleur du fond                                | couleur thème par défaut | `white`   |
+| fontFamily          | contrôle la police utilisée                                | police thème par défaut  | `Arial`   |
+| theme               | contrôle le thème                                          | `Default`                | `Default` |
+
 <br/><br/>
 
-### InputDate 
+### InputDate
+
 <br/>
 
 Cet élément permet de créer un champ où l’utilisateur peut saisir une date.
 <br/>
-Il permet à l’utilisateur de sélectionner facilement une date via  un sélecteur de date.
+Il permet à l’utilisateur de sélectionner facilement une date via un sélecteur de date.
 <br/><br/>
 
-| Nom de la propriété | Description | Valeur par défaut | Exemple |
-| ------------------- | ----------- | ----------------- | ------- |
-| language            | indique si la langue utilisée est l'anglais ("eng") ou le français ("fr)      | `fr`            | `eng`   |
-| color               | contrôle la couleur        | couleur thème par défaut            |`"black"`   |
-| backgroundColor     | contrôle la couleur du fond        | couleur thème par défaut            | `white`   |
-| fontFamily          | contrôle la police utilisée        | police thème par défaut            | `Arial`   |
-| theme               | contrôle le thème        | `Default`           | `Default`  |
+| Nom de la propriété | Description                                                              | Valeur par défaut        | Exemple   |
+| ------------------- | ------------------------------------------------------------------------ | ------------------------ | --------- |
+| language            | indique si la langue utilisée est l'anglais ("eng") ou le français ("fr) | `fr`                     | `eng`     |
+| color               | contrôle la couleur                                                      | couleur thème par défaut | `"black"` |
+| backgroundColor     | contrôle la couleur du fond                                              | couleur thème par défaut | `white`   |
+| fontFamily          | contrôle la police utilisée                                              | police thème par défaut  | `Arial`   |
+| theme               | contrôle le thème                                                        | `Default`                | `Default` |
+
 <br/><br/>
+
 ### SaisonImg
+
 <br/>
 Cet élément permet d'afficher plusieurs images de manière alternée en fonction des saisons.
 
-| Nom de la propriété | Description | Valeur par défaut | Exemple |
-| ------------------- | ----------- | ----------------- | ------- |
-| language            | Title       | Header            | Title   |
-| color               | Text        | Header            | Title   |
-| backgroundColor     | Text        | Header            | Title   |
-| fontFamily          | Text        | Header            | Title   |
-| theme               | Text        | Header            | Title   |
+| Nom de la propriété | Description                                                | Valeur par défaut        | Exemple           |
+| ------------------- | ---------------------------------------------------------- | ------------------------ | ----------------- |
+| language            | indique si la langue utilisée est l'anglais ou le français | `fr`                     | `"fr"` ou `"eng"` |
+| color               | contrôle la couleur                                        | couleur thème par défaut | `"black"`         |
+| backgroundColor     | contrôle la couleur du fond                                | couleur thème par défaut | `white`           |
+| fontFamily          | contrôle la police utilisée                                | police thème par défaut  | `Arial`           |
+| theme               | contrôle le thème                                          | `Default`                | `Default`         |

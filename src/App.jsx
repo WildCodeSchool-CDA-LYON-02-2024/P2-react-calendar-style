@@ -32,7 +32,7 @@ import CalendarCases from './components/calendarCases/CalendarCases';
       />
       <CalendarCases
         language='fr'
-        color='red'
+        // color='red'
         fontFamily='Roboto'
         backgroundColor='white'
         height='500px'
