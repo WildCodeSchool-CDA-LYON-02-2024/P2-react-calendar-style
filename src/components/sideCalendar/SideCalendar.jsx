@@ -1,11 +1,11 @@
 import { useState } from "react";
-import CalendarCases from "../calendarCases/CalendarCases";
-import InputDate from "../inputs/InputDate";
-import SaisonImg from "../saison_img/SaisonImg";
+import {CalendarCases} from "../calendarCases/CalendarCases";
+import {InputDate} from "../inputs/InputDate";
+import {SaisonImg} from "../saison_img/SaisonImg";
 import PropTypes from "prop-types";
 import "./SideCalendar.css";
 
-export default function SideCalendar({
+function SideCalendar({
   color,
   fontFamily,
   backgroundColor,
@@ -60,3 +60,6 @@ SideCalendar.propTypes = {
   CalendarDisplay: PropTypes.string,
   SaisonImgDisplay: PropTypes.string,
 };
+
+
+export {SideCalendar,InputDate, SaisonImg, CalendarCases}

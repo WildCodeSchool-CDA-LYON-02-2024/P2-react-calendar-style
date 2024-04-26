@@ -62,7 +62,7 @@ InputDate.propTypes = {
   display: PropTypes.string,
 };
 
-export default InputDate;
+export  {InputDate};
 InputDate.defaultProps = {
   height: "40px",
   width: "480px",

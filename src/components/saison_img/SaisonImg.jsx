@@ -70,4 +70,4 @@ SaisonImg.defaultProps = {
   borderRadius: "10px",
 };
 
-export default SaisonImg;
+export  {SaisonImg};

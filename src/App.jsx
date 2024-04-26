@@ -13,7 +13,7 @@ function App() {
         <SideCalendar
         // CalendarDisplay="none"
         // SaisonImgDisplay="none"
-        // display="none"
+        // InputDisplay="none"
         // color="red"
         // border="1px solid green"
         // fontFamily="Roboto"
