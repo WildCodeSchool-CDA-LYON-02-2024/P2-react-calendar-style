@@ -10,7 +10,12 @@
 
 - Installation
 - Utilisation
-- Props
+- Composants :
+  - Description 
+  - Capture image
+  - Props
+  - Code
+
 <br/><br/>
 ## 📦 Installation
 
