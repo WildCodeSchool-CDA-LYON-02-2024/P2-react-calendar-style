@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./gridCalendar.css"
 import Btn from "../btns/Btn";
 
-function GridCalendar({value, setValue}) {
+function GridCalendar({value = new Date(), setValue, heigth = "500px", padding='5px 32px'}) {
 
   const days = ["samedi", "dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi"]
   const hours = ["00h00","01h00","02h00","03h00","04h00","05h00","06h00","07h00","08h00","09h00","10h00","11h00","12h00","13h00","14h00","15h00","16h00","17h00","18h00","19h00","20h00","21h00","22h00","23h00"]
@@ -55,11 +55,11 @@ function GridCalendar({value, setValue}) {
     console.log("day is", day, "heur is ", hour)
   }
   return (
-    <div className='row'>
+    <div className='rowCalendar' style={{height: heigth}}>
       <div className="monthSelect">
         {value.toLocaleDateString('default', { month: 'long', year: 'numeric' })}
       </div>
-      <table className="table">
+      <table className="table" > 
   <thead>
     <tr className='thDay'>
         <th></th>
@@ -72,7 +72,7 @@ function GridCalendar({value, setValue}) {
    
     <th>
       <Btn onClick={prevPage} disabled={currentPage === 1}
-           padding='5px 32px'
+           padding={padding}
       >
         {"<<"}
       </Btn>
@@ -88,7 +88,7 @@ function GridCalendar({value, setValue}) {
         )}
          <th>
       <Btn onClick={nextPage} disabled={endIndex >= daysInMonth.length}
-           padding='5px 32px'
+           padding={padding}
       >
        {">>"}
       </Btn>
@@ -118,8 +118,10 @@ function GridCalendar({value, setValue}) {
 }
 
 GridCalendar.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]).isRequired,
+    value: PropTypes.Date,
     setValue: PropTypes.func.isRequired,
+    heigth: PropTypes.string,
+    padding: PropTypes.string
 }
 
 export default GridCalendar;

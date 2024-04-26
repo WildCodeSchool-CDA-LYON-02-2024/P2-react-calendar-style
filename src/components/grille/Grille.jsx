@@ -4,28 +4,31 @@ import GridDay from './GrilleDay';
 import GridWek from "./GridWek";
 import './grille.css';
 import Btn from "../btns/Btn";
+import "./gridCalendar.css"
 
-function Grille({value, setValue})
+function Grille({value = new Date(), setValue, heigth = "500px"})
   {
   const [grid, setGrid] = useState("day")
   return (
-    <div>
+    <div className='colRight' style={{height: heigth}}>
       <div className='divAction'>
         <Btn onClick={() => setGrid("day")} 
              background={grid == "day" ? "#00012e" : "#fff"} 
              color={grid == "day" ? "#fff" : "#00012e"}
-             fontSize={35}
+             fontSize={20}
              padding='7px 30px'
              border='1px solid #00012e'
+             height='40px'
         >
           Day
         </Btn>
         <Btn onClick={() => setGrid("week")} 
              background={grid == "week" ? "#00012e" : "#fff"} 
              color={grid == "week" ? "#fff" : "#00012e"}
-             fontSize={35}
+             fontSize={20}
              padding='10px 20px'
              border='1px solid #00012e'
+             height='40px'
         >
           Week
         </Btn>
@@ -39,8 +42,9 @@ function Grille({value, setValue})
 )
 }
 Grille.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]).isRequired,
+    value: PropTypes.Date,
     setValue: PropTypes.func.isRequired,
+    heigth: PropTypes.string
 }
 
 export default Grille

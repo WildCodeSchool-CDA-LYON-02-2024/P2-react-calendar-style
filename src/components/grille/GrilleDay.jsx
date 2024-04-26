@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./gridCalendar.css";
 import Btn from "../btns/Btn";
 
-function GrilleDay({value, setValue}) {
+function GrilleDay({value = new Date(), setValue, heigth = "500px", padding = "5px 20px"}) {
 
     const days = ["samedi", "dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi"]
     const hours = ["00h00","01h00","02h00","03h00","04h00","05h00","06h00","07h00","08h00","09h00","10h00","11h00","12h00","13h00","14h00","15h00","16h00","17h00","18h00","19h00","20h00","21h00","22h00","23h00"]
@@ -59,13 +59,13 @@ function GrilleDay({value, setValue}) {
     return `${jour} ${day.getDate()} ${moisEnLettres} ${annee}`;
     }
     return (
-        <div className='row'>
+        <div className='rowCalendar' style={{height: heigth}}>
             <table className="table">
             <thead>
             <tr>
             <th>
                 <Btn onClick={prevPage} disabled={currentPage === 1}
-                     padding='5px 32px'
+                     padding= {padding}
                 >
                   {"<<"}
                 </Btn>
@@ -81,14 +81,14 @@ function GrilleDay({value, setValue}) {
             )}
             <th>
                 <Btn onClick={nextPage} disabled={endIndex >= daysInMonth.length}
-                     padding='5px 32px'
+                     padding= {padding}
                 >
                   {">>"}
                 </Btn>
             </th>
             </tr>
         </thead>
-        <tbody>
+        <tbody className='tbody'>
         {hours.map((hour, index) =>
             <tr key={index}  className='thDay'>
             <td className='tableHour'><span className='text'>{hour}</span></td>
@@ -108,8 +108,10 @@ function GrilleDay({value, setValue}) {
 }
 
 GrilleDay.propTypes = {
-    value: PropTypes.instanceOf(Date),
+    value: PropTypes.date,
     setValue: PropTypes.func.isRequired,
+    heigth: PropTypes.string,
+    padding: PropTypes.string
   
 }
 

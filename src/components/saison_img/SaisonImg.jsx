@@ -59,7 +59,7 @@ function SaisonImg({
 }
 
 SaisonImg.propTypes = {
-    date: PropTypes.string.isRequired,
+    date: PropTypes.Date,
     height: PropTypes.string.isRequired, 
     width: PropTypes.string.isRequired,
     border: PropTypes.string.isRequired,

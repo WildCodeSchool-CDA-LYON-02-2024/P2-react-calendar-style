@@ -4,7 +4,7 @@ function Btn({
     width= "",
     height= "",
     fontFamily= "Arial",
-    fontSize = 30,
+    fontSize = 20,
     background = "#00012E",
     color = "#fff",
     border = "0px",
@@ -58,13 +58,13 @@ Btn.propTypes = {
   export default Btn;
 
   Btn.defaultProps = {
-    height: "80px",
+    height: "35px",
     width: "50",
     background: "white",
     color: "black",
     fontFamily: "arial",
     border: "2px solid blue",
-    borderRadius: "5px",
+    borderRadius: "0px",
     fontSize: "20px",
     type:"button" || "submit" || "reset",
     disabled: false,

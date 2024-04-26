@@ -15,7 +15,7 @@ function App() {
     <>
     <div className="app">
       <div className="main">
-        <div className="row1">
+        <div className="col1">
           <InputDate
             value={date}
             setValue={setDate}
@@ -36,7 +36,7 @@ function App() {
           />
         </div>
 
-        <div className="row2">
+        <div className="col2">
            <Grille value={date} setValue={setDate}/>
         </div>
 
