@@ -74,11 +74,11 @@ Cet élément permet d'afficher les jours de la semaine en français ou en angla
 
 | Nom de la propriété | Description | Valeur par défaut | Exemple |
 | ------------------- | ----------- | ----------------- | ------- |
-| english             | Title       | Header            | Title   |
-| color               | Text        | Header            | Title   |
-| backgroundColor     | Text        | Header            | Title   |
-| fontFamily          | Text        | Header            | Title   |
-| theme               | Text        | Header            | Title   |
+| english             | indique si la langue utilisée est l'anglais ou le français       | `false`            | `true`   |
+| color               | contrôle la couleur        | couleur thème par défaut            |`"black"`   |
+| backgroundColor     | contrôle la couleur du fond       | couleur thème par défaut            | `white`   |
+| fontFamily          | contrôle la police utilisée        | police thème par défaut            | `Arial`   |
+| theme               | contrôle le thème       | `Default`           | `Default`   |
 <br/><br/>
 
 ### InputDate 
@@ -91,11 +91,11 @@ Il permet à l’utilisateur de sélectionner facilement une date via  un sélec
 
 | Nom de la propriété | Description | Valeur par défaut | Exemple |
 | ------------------- | ----------- | ----------------- | ------- |
-| language            | Title       | Header            | Title   |
-| color               | Text        | Header            | Title   |
-| backgroundColor     | Text        | Header            | Title   |
-| fontFamily          | Text        | Header            | Title   |
-| theme               | Text        | Header            | Title   |
+| language            | indique si la langue utilisée est l'anglais ("eng") ou le français ("fr)      | `fr`            | `eng`   |
+| color               | contrôle la couleur        | couleur thème par défaut            |`"black"`   |
+| backgroundColor     | contrôle la couleur du fond        | couleur thème par défaut            | `white`   |
+| fontFamily          | contrôle la police utilisée        | police thème par défaut            | `Arial`   |
+| theme               | contrôle le thème        | `Default`           | `Default`  |
 <br/><br/>
 ### SaisonImg
 <br/>
