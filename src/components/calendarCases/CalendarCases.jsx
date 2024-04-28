@@ -64,7 +64,6 @@ export default function CalendarCases({
   const firstDayOfMonth = getFirstDayOfMonth();
   const startingDay = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
 
-
   return (
     <section
       style={{
@@ -95,7 +94,12 @@ export default function CalendarCases({
                 id="day"
                 data-day={day}
                 key={i}
-                className={selectedDate?.getTime() === new Date(currentYear, currentMonth, day).getTime() ? "active" : ""}
+                className={
+                  selectedDate?.getTime() ===
+                  new Date(currentYear, currentMonth, day).getTime()
+                    ? "active"
+                    : ""
+                }
               >
                 {day}
               </p>
