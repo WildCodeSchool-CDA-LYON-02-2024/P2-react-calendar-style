@@ -4,11 +4,13 @@
 }
 
 .calendarCasesContainer {
+  
   height: 500px;
   width: 500px;
 }
 
 .allMonthsContainer {
+  background-color: blue;
   height: 100%;
   display: flex;
   margin: 1rem;

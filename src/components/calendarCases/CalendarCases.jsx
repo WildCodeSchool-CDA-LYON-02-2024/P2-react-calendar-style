@@ -1,11 +1,11 @@
 import { useState } from "react";
-import "./CalendarCases2.css";
+import "./CalendarCases.css";
 import { months } from "../../services/months";
 import WeekDaysCases from "../weekDaysCase/WeekDaysCases";
-import { getNumberOfDaysInMonth, range } from "../../services";
+import { getNumberOfDaysInMonth, range } from "../../services/Calendar";
 import PropTypes from "prop-types";
 
-export function CalendarCases({ color, fontFamily, backgroundColor, display }) {
+export default function CalendarCases({ color, fontFamily, backgroundColor, display }) {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [selectedDate, setSelectedDate] = useState(null);
