@@ -2,26 +2,20 @@ import PropTypes from "prop-types";
 import Image from "./Image";
 import "./image.css";
 
-import { saisDate, urlsImg } from "../../services/Saison"
+import { saisDate, urlsImg } from "../../services/Saison";
 
 // function SaisonImg(props) {
 //   const { date } = props;
-  
-function SaisonImg({
-  date, 
-  height, 
-  width,
-  border, 
-  borderRadius,
-}) {
 
+function SaisonImg({ date, height, width, border, borderRadius, display }) {
   const styleElement = {
     width: width,
-    height : height,
+    height: height,
     border: border,
-    borderRadius: borderRadius
-  }
- 
+    borderRadius: borderRadius,
+    display: display,
+  };
+
   const monthDayFormat = (dateCurrent) => {
     const maDate = new Date(dateCurrent);
     return (maDate?.getMonth() + 1) * 100 + maDate?.getDate();
@@ -62,17 +56,18 @@ function SaisonImg({
 }
 
 SaisonImg.propTypes = {
-    date: PropTypes.string.isRequired,
-    height: PropTypes.string.isRequired, 
-    width: PropTypes.string.isRequired,
-    border: PropTypes.string.isRequired,
-    borderRadius: PropTypes.number.isRequired,
-  };
+  date: PropTypes.string,
+  height: PropTypes.string,
+  width: PropTypes.string,
+  border: PropTypes.string,
+  borderRadius: PropTypes.number,
+  display: PropTypes.string,
+};
 
-  SaisonImg.defaultProps = {
-    date: new Date(),
-    border: "5px solid grey",
-    borderRadius: "10px",
-  };
+SaisonImg.defaultProps = {
+  date: new Date(),
+  border: "2px solid grey",
+  borderRadius: "10px",
+};
 
-export default SaisonImg;
+export  {SaisonImg};

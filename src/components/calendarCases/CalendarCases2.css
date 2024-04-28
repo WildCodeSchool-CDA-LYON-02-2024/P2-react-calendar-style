@@ -1,5 +1,5 @@
 section{
-  background-color: lightblue;
+  width: 100%;
 }
 
 .header{
@@ -29,6 +29,7 @@ padding: 1rem;
 
 button{
   cursor: pointer;
+  padding: 0.5rem;
 }
 
 p{

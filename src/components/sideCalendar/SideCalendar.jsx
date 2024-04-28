@@ -1,11 +1,19 @@
 import { useState } from "react";
-import CalendarCases from "../calendarCases/CalendarCases";
-import InputDate from "../inputs/InputDate";
-import SaisonImg from "../saison_img/SaisonImg";
+import {CalendarCases} from "../calendarCases/CalendarCases";
+import {InputDate} from "../inputs/InputDate";
+import {SaisonImg} from "../saison_img/SaisonImg";
 import PropTypes from "prop-types";
 import "./SideCalendar.css";
 
-export default function SideCalendar({ color, fontFamily, backgroundColor }) {
+function SideCalendar({
+  color,
+  fontFamily,
+  backgroundColor,
+  border,
+  InputDisplay,
+  CalendarDisplay,
+  SaisonImgDisplay,
+}) {
   const [date, setDate] = useState(new Date());
   const [currentYear, setCurrentYear] = useState(date.getFullYear());
   const [currentMonth, setCurrentMonth] = useState(date.getMonth());
@@ -25,6 +33,8 @@ export default function SideCalendar({ color, fontFamily, backgroundColor }) {
           background={backgroundColor}
           color={color}
           fontFamily={fontFamily}
+          border={border}
+          display={InputDisplay}
         />
         <CalendarCases
           currentMonth={currentMonth}
@@ -35,9 +45,12 @@ export default function SideCalendar({ color, fontFamily, backgroundColor }) {
           color={color}
           fontFamily={fontFamily}
           backgroundColor={backgroundColor}
+          display={CalendarDisplay}
         />
         <SaisonImg
           date={`${currentYear}-${currentMonth + 1}-${date.getDate()}`}
+          border={border}
+          display={SaisonImgDisplay}
         />
       </div>
     </>
@@ -48,4 +61,11 @@ SideCalendar.propTypes = {
   color: PropTypes.string,
   fontFamily: PropTypes.string,
   backgroundColor: PropTypes.string,
+  border: PropTypes.string,
+  InputDisplay: PropTypes.string,
+  CalendarDisplay: PropTypes.string,
+  SaisonImgDisplay: PropTypes.string,
 };
+
+
+export {SideCalendar,InputDate, SaisonImg, CalendarCases}

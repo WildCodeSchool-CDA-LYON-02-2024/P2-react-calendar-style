@@ -5,7 +5,7 @@ import WeekDaysCases from "../weekDaysCase/WeekDaysCases";
 import { getNumberOfDaysInMonth, range } from "../../services";
 import PropTypes from "prop-types";
 
-export default function CalendarCases({
+export function CalendarCases({
   currentMonth,
   setCurrentMonth,
   currentYear,
@@ -13,6 +13,7 @@ export default function CalendarCases({
   color,
   fontFamily,
   backgroundColor,
+  display,
 }) {
   const [selectedDate, setSelectedDate] = useState(null);
 
@@ -47,7 +48,11 @@ export default function CalendarCases({
   };
 
   return (
-    <section>
+    <section
+      style={{
+        display,
+      }}
+    >
       <div
         className="header"
         style={{
@@ -69,7 +74,11 @@ export default function CalendarCases({
         <button onClick={nextMonth}>{" > "}</button>
       </div>
       <div className="weekDays">
-        <WeekDaysCases />
+        <WeekDaysCases
+          color={color}
+          fontFamily={fontFamily}
+          backgroundColor={backgroundColor}
+        />
       </div>
       <div
         className="monthContainer"
@@ -112,6 +121,11 @@ CalendarCases.propTypes = {
   color: PropTypes.string,
   fontFamily: PropTypes.string,
   backgroundColor: PropTypes.string,
+  currentMonth: PropTypes.number,
+  setCurrentMonth: PropTypes.func,
+  currentYear: PropTypes.number,
+  setCurrentYear: PropTypes.func,
+  display: PropTypes.string,
 };
 
 // CalendarCases.defaultProps = {

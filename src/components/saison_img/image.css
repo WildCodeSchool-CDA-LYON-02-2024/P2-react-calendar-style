@@ -1,9 +1,10 @@
 .ImageContainer {
   height: 30vh;
+  width: 100%;
 }
 
 .img {
   margin-top: 10px;
-
+  box-sizing: border-box;
   width: 100%;
 }
