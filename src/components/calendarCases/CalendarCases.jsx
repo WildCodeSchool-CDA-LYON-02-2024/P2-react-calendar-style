@@ -1,14 +1,34 @@
 import { useState } from "react";
 import "./CalendarCases.css";
-import { months } from "../../services/months";
+import { months, monthsFr } from "../../services/months";
 import WeekDaysCases from "../weekDaysCase/WeekDaysCases";
 import { getNumberOfDaysInMonth, range } from "../../services/Calendar";
 import PropTypes from "prop-types";
+import { Themes } from "../../services/themes";
 
-export default function CalendarCases({ color, fontFamily, backgroundColor, display }) {
+export default function CalendarCases({
+  language = "fr",
+  color,
+  fontFamily,
+  backgroundColor,
+  display,
+  theme = "Default",
+}) {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [selectedDate, setSelectedDate] = useState(null);
+
+  const selectedTheme = Themes[theme] || null;
+
+  const applyThemeStyles = () => ({
+    color: color || selectedTheme.color,
+    backgroundColor: backgroundColor || selectedTheme.backgroundColor,
+    fontFamily: fontFamily || selectedTheme.fontFamily,
+  });
+
+  const getFirstDayOfMonth = () => {
+    return new Date(currentYear, currentMonth, 1).getDay();
+  };
 
   const nextMonth = () => {
     if (currentMonth < 11) {
@@ -40,70 +60,50 @@ export default function CalendarCases({ color, fontFamily, backgroundColor, disp
     }
   };
 
+  const daysInMonth = getNumberOfDaysInMonth(currentYear, currentMonth);
+  const firstDayOfMonth = getFirstDayOfMonth();
+  const startingDay = firstDayOfMonth === 0 ? 6 : firstDayOfMonth - 1;
+
+
   return (
     <section
       style={{
         display,
       }}
     >
-      <div
-        className="header"
-        style={{
-          color,
-          fontFamily,
-          backgroundColor,
-        }}
-      >
-        <button onClick={prevMonth}>{" < "}</button>
-        <p
-          style={{
-            color,
-            fontFamily,
-            backgroundColor,
-          }}
-        >
-          {months[currentMonth]} {currentYear}
+      <div className="header" style={applyThemeStyles()}>
+        <button onClick={prevMonth}>{" << "}</button>
+        <p style={applyThemeStyles()}>
+          {language === "fr" ? monthsFr[currentMonth] : months[currentMonth]}{" "}
+          {currentYear}
         </p>
-        <button onClick={nextMonth}>{" > "}</button>
+        <button onClick={nextMonth}>{" >> "}</button>
       </div>
       <div className="weekDays">
-        <WeekDaysCases
-          color={color}
-          fontFamily={fontFamily}
-          backgroundColor={backgroundColor}
-        />
+        <WeekDaysCases />
       </div>
       <div
         className="monthContainer"
         onClick={handleSelect}
-        style={{
-          color,
-          fontFamily,
-          backgroundColor,
-        }}
+        style={applyThemeStyles()}
       >
-        {range(1, getNumberOfDaysInMonth(currentYear, currentMonth) + 1).map(
-          (day, i) => (
-            <p
-              style={{
-                color,
-                fontFamily,
-                backgroundColor,
-              }}
-              id="day"
-              data-day={day}
-              key={i}
-              className={
-                selectedDate?.getTime() ===
-                new Date(currentYear, currentMonth, day).getTime()
-                  ? "active"
-                  : ""
-              }
-            >
-              {day}
-            </p>
-          )
-        )}
+        {range(1 - startingDay, daysInMonth + 1).map((day, i) => {
+          if (day > 0) {
+            return (
+              <p
+                style={applyThemeStyles()}
+                id="day"
+                data-day={day}
+                key={i}
+                className={selectedDate?.getTime() === new Date(currentYear, currentMonth, day).getTime() ? "active" : ""}
+              >
+                {day}
+              </p>
+            );
+          } else {
+            return <p key={i}></p>;
+          }
+        })}
       </div>
     </section>
   );
@@ -111,8 +111,10 @@ export default function CalendarCases({ color, fontFamily, backgroundColor, disp
 
 CalendarCases.propTypes = {
   value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
+  language: PropTypes.string,
   color: PropTypes.string,
   fontFamily: PropTypes.string,
   backgroundColor: PropTypes.string,
+  theme: PropTypes.string,
   display: PropTypes.string,
 };

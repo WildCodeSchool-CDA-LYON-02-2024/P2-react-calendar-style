@@ -31,7 +31,7 @@ function App() {
         /> */}
         {/*       
       <WeekDaysCases /> */}
-        <CalendarCases theme="Standard" />
+        <CalendarCases />
         {/* <SaisonImg
         date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
         width='30%'

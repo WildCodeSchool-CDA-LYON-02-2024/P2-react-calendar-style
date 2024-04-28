@@ -11,7 +11,7 @@ export default function WeekDaysCases({
   fontFamily,
   english,
   width,
-  theme,
+  theme = "Default",
 }) {
   const selectedTheme = Themes[theme] || null;
   const selectedLanguage = english ? days : daysFr;
