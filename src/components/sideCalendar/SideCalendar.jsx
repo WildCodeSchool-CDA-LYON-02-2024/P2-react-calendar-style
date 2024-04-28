@@ -10,14 +10,18 @@ export default function SideCalendar({ color, fontFamily, backgroundColor }) {
   const [currentYear, setCurrentYear] = useState(date.getFullYear());
   const [currentMonth, setCurrentMonth] = useState(date.getMonth());
 
+  const handleDateChange = (newDate) => {
+    setDate(newDate);
+    setCurrentYear(newDate.getFullYear());
+    setCurrentMonth(newDate.getMonth());
+  };
 
-  console.log(date);
   return (
     <>
       <div className="leftContainer">
         <InputDate
           value={date}
-          setValue={setDate}
+          setValue={handleDateChange}
           background={backgroundColor}
           color={color}
           fontFamily={fontFamily}
@@ -27,6 +31,7 @@ export default function SideCalendar({ color, fontFamily, backgroundColor }) {
           setCurrentMonth={setCurrentMonth}
           currentYear={currentYear}
           setCurrentYear={setCurrentYear}
+
           color={color}
           fontFamily={fontFamily}
           backgroundColor={backgroundColor}
