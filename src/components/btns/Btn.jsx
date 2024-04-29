@@ -55,16 +55,16 @@ Btn.propTypes = {
     children: PropTypes.string  
   };
 
-  // Btn.defaultProps = {
-  //   height: "35px",
-  //   width: "50",
-  //   background: "white",
-  //   color: "black",
-  //   fontFamily: "arial",
-  //   border: "2px solid blue",
-  //   borderRadius: "0px",
-  //   fontSize: "20px",
-  //   type:"button" || "submit" || "reset",
-  //   disabled: false,
-  //   children: "button" || ">>" ||"<<",
-  // }
+  Btn.defaultProps = {
+    height: "35px",
+    width: "50",
+    background: "white",
+    color: "black",
+    fontFamily: "arial",
+    border: "2px solid blue",
+    borderRadius: "0px",
+    fontSize: "20px",
+    type:"button" || "submit" || "reset",
+    disabled: false,
+    children: "button" || ">>" ||"<<",
+  }
