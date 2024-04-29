@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useState, useRef } from "react";
 import "./CalendarCases.css";
 import { months, monthsFr } from "../../services/months";
 import { getNumberOfDaysInMonth, range } from "../../services/Calendar";
@@ -17,11 +17,10 @@ export default function CalendarCases({
 }) {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
-  const [selectedDate, setSelectedDate] = useState(null);
+  const [isMouseDown, setIsMouseDown] = useState(false);
 
   const selectedTheme = Themes[theme] || null;
-
-  console.log(selectedDatesArray);
+  const calendarRef = useRef(null);
 
   const applyThemeStyles = () => ({
     color: color || selectedTheme.color,
@@ -51,16 +50,22 @@ export default function CalendarCases({
     }
   };
 
-  const handleSelect = (event) => {
-    if (event.target.id === "day") {
-      const newSelectedDate = new Date(
-        currentYear,
-        currentMonth,
-        event.target.getAttribute("data-day")
-      );
-      setSelectedDate(newSelectedDate);
-      setSelectedDatesArray([newSelectedDate]);
+  const handleselectDate = (event, day) => {
+    setIsMouseDown(true);
+    setSelectedDatesArray([new Date(currentYear, currentMonth, day)]);
+  };
+
+  const handleMouseEnter = (event, day) => {
+    if (isMouseDown) {
+      const newDate = new Date(currentYear, currentMonth, day);
+      if (!selectedDatesArray.some(date => date.getTime() === newDate.getTime())) {
+        setSelectedDatesArray([...selectedDatesArray, newDate]);
+      }
     }
+  };
+
+  const handleMouseUp = () => {
+    setIsMouseDown(false);
   };
 
   const daysInMonth = getNumberOfDaysInMonth(currentYear, currentMonth);
@@ -83,7 +88,8 @@ export default function CalendarCases({
       </div>
       <div
         className="monthContainer"
-        onClick={handleSelect}
+        onMouseUp={handleMouseUp}
+        ref={calendarRef}
         style={applyThemeStyles()}
       >
         {range(1 - startingDay, daysInMonth + 1).map((day, i) => {
@@ -95,11 +101,12 @@ export default function CalendarCases({
                 data-day={day}
                 key={i}
                 className={
-                  selectedDate?.getTime() ===
-                  new Date(currentYear, currentMonth, day).getTime()
+                  selectedDatesArray.some(date => date.getTime() === new Date(currentYear, currentMonth, day).getTime())
                     ? "active"
                     : ""
                 }
+                onMouseDown={(event) => handleselectDate(event, day)}
+                onMouseEnter={(event) => handleMouseEnter(event, day)}
               >
                 {day}
               </p>
@@ -112,15 +119,13 @@ export default function CalendarCases({
     </section>
   );
 }
-
 CalendarCases.propTypes = {
-  value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
   language: PropTypes.string,
   color: PropTypes.string,
   fontFamily: PropTypes.string,
   backgroundColor: PropTypes.string,
-  theme: PropTypes.string,
   display: PropTypes.string,
+  theme: PropTypes.string,
   selectedDatesArray: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
   setSelectedDatesArray: PropTypes.func,
 };
