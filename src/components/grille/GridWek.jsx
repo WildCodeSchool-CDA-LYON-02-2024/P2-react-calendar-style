@@ -11,6 +11,9 @@ function GridCalendar({value = new Date(), setValue, heigth = "500px", padding='
 
   const itemsPerPage = 7;
   const [currentPage, setCurrentPage] = useState(1);
+  const [dateSelected, setDateSelected] = useState(value);
+  const [heurSelected, setheurSelected] = useState(null);
+
   
 
   useEffect(() => {
@@ -52,12 +55,23 @@ function GridCalendar({value = new Date(), setValue, heigth = "500px", padding='
   };
 
   const selectHour = (day, hour) => {
-    console.log("day is", day, "heur is ", hour)
+    setDateSelected(day)
+    setheurSelected(hour)
   }
   return (
     <div className='rowCalendar' style={{height: heigth}}>
       <div className="monthSelect">
-        {value.toLocaleDateString('default', { month: 'long', year: 'numeric' })}
+        <p>
+        {value.toLocaleDateString('default', { month: 'long', year: 'numeric' })} 
+        </p>
+        {heurSelected  &&
+          <p>
+            Vous avez selectionne {`${dateSelected?.getDate()}-${dateSelected?.getMonth()}- ${dateSelected?.getFullYear()}`}
+
+          {`A  ${heurSelected}`}
+          </p>
+        }
+        
       </div>
       <table className="table" > 
   <thead>
@@ -105,6 +119,8 @@ function GridCalendar({value = new Date(), setValue, heigth = "500px", padding='
              className={day.getDate() == value.getDate() ? "daySelected" : ""}  
              key={i} 
              onClick={() => selectHour(day, hour)}>
+              
+              <input type="checkbox" checked={hour === heurSelected && dateSelected?.getDate() === day?.getDate() } />
           </td>
         )}
   </tr>
