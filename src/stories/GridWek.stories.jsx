@@ -1,12 +1,12 @@
-import GridCalendar from "../components/grille/GrilleWeek.jsx";
+import {GrilleWeek} from "../components/grille/GrilleWeek";
 
 export default {
-    component: GridCalendar,
+    component: GrilleWeek,
     title: 'GridCalendar',
     tags: ['autodocs'],
   };
   
   export function Default(args) {
-    return <GridCalendar {...args} />;
+    return <GrilleWeek {...args} />;
   }
   

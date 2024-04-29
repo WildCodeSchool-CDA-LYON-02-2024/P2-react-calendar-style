@@ -1,4 +1,4 @@
-import InputDate from "../components/inputs/InputDate";
+import {InputDate} from "../components/inputs/InputDate";
 
 export default {
     component: InputDate,

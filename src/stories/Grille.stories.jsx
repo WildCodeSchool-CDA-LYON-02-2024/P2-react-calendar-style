@@ -1,4 +1,4 @@
-import Grille from "../components/grille/Grille.jsx";
+import {Grille} from "../components/grille/Grille.jsx";
 
 export default {
     component: Grille,

@@ -1,4 +1,4 @@
-import Btn from "../components/btns/Btn";
+import {Btn} from "../components/btns/Btn";
 
 export default {
   title: "Btn",
