@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-function Btn({
+export function Btn({
     className = "",
     width= "",
     height= "",
@@ -40,14 +40,14 @@ function Btn({
 
 Btn.propTypes = {
     className: PropTypes.string,
-    width: PropTypes.number,
-    height: PropTypes.number,
+    width: PropTypes.string,
+    height: PropTypes.string,
     fontFamily: PropTypes.string,
     fontSize: PropTypes.number,
     background: PropTypes.string,
     color: PropTypes.string,
     border: PropTypes.string, 
-    borderRadius: PropTypes.number,
+    borderRadius: PropTypes.string,
     padding: PropTypes.string,
     onClick: PropTypes.func,
     type: PropTypes.string,
@@ -55,18 +55,16 @@ Btn.propTypes = {
     children: PropTypes.string  
   };
 
-  export default Btn;
-
-  Btn.defaultProps = {
-    height: "35px",
-    width: "50",
-    background: "white",
-    color: "black",
-    fontFamily: "arial",
-    border: "2px solid blue",
-    borderRadius: "0px",
-    fontSize: "20px",
-    type:"button" || "submit" || "reset",
-    disabled: false,
-    children: "button" || ">>" ||"<<",
-  }
+  // Btn.defaultProps = {
+  //   height: "35px",
+  //   width: "50",
+  //   background: "white",
+  //   color: "black",
+  //   fontFamily: "arial",
+  //   border: "2px solid blue",
+  //   borderRadius: "0px",
+  //   fontSize: "20px",
+  //   type:"button" || "submit" || "reset",
+  //   disabled: false,
+  //   children: "button" || ">>" ||"<<",
+  // }

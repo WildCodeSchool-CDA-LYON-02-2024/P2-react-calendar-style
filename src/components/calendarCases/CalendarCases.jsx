@@ -5,7 +5,7 @@ import { getNumberOfDaysInMonth, range } from "../../services/Calendar";
 import PropTypes from "prop-types";
 import { Themes } from "../../services/themes";
 
-export default function CalendarCases({
+export function CalendarCases({
   language = "fr",
   color,
   fontFamily,

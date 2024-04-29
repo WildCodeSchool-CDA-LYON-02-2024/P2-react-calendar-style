@@ -5,7 +5,7 @@ import { days, daysFr } from '../../services/weekDays';
 import { Themes } from '../../services/themes';
 
 /** Le composant WeekDays permet d'afficher les jours de la semaine */
-export default function WeekDaysCases({
+export function WeekDaysCases({
   color,
   backgroundColor,
   fontFamily,
@@ -64,11 +64,3 @@ WeekDaysCases.propTypes = {
 
   theme: PropTypes.string,
 };
-
-// WeekDaysCases.defaultProps = {
-//   backgroundColor: 'white',
-//   color: "blue",
-//   english: false,
-//   fontFamily: 'Arial',
-//   width: null,
-// };

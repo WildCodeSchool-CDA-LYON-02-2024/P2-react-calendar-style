@@ -6,7 +6,7 @@ import './grille.css';
 import Btn from "../btns/Btn";
 import "./gridCalendar.css"
 
-function Grille({value = new Date(), setValue, heigth = "500px"})
+export function Grille({value = new Date(), setValue, heigth = "500px"})
   {
   const [grid, setGrid] = useState("day")
   return (
@@ -42,9 +42,7 @@ function Grille({value = new Date(), setValue, heigth = "500px"})
 )
 }
 Grille.propTypes = {
-    value: PropTypes.Date,
-    setValue: PropTypes.func.isRequired,
+    value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
+    setValue: PropTypes.func,
     heigth: PropTypes.string
 }
-
-export default Grille
