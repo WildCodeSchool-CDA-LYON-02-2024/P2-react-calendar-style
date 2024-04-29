@@ -1,25 +1,29 @@
 import { useState } from "react";
-// import SaisonImg from './components/saison_img/SaisonImg';
-// import InputDate from './components/inputs/InputDate';
+import { useEffect } from 'react'
+import SaisonImg from './components/saison_img/SaisonImg';
+import InputDate from './components/inputs/InputDate';
 import "./App.css";
-// import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
+import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
 import CalendarCases from "./components/calendarCases/CalendarCases";
-// import GrilleWeek from './components/grille/Grille';
-// import DayGrille from './components/grille/GrilleDay';
-// import GridCalendar from './components/gridCalendar/GridCalendar.jsx';
+import Grille from './components/grille/Grille';
+import DarkModeToggle from './components/darkMode/DarkModeToggle.jsx';
 
 function App() {
-  // const currentDate = new Date();
-  // const [date, setDate] = useState(currentDate);
+  const currentDate = new Date();
+  const [date, setDate] = useState(currentDate);
+  const [dark, setDark] = useState(false);
+
+  useEffect(() => {
+    document.body.className = dark ? 'dark-mode' : 'light-mode';
+  }, [dark]);
+
   const [selectedDatesArray, setSelectedDatesArray] = useState([]);
   return (
     <>
-      <div className="app">
-        {/* <h1>GrilleWeek</h1>
-      <GrilleWeek /> 
-      <DayGrille/> */}
 
-        {/* <InputDate
+    <div className="app">
+    
+        <InputDate
           value={date}
           setValue={setDate}
           height='40px'
@@ -29,26 +33,24 @@ function App() {
           fontFamily='Arial'
           border='3px solid grey'
           borderRadius='5px'
-        /> */}
-        {/*       
-      <WeekDaysCases /> */}
-        <CalendarCases
+        />
+      
+      <WeekDaysCases />
+      <CalendarCases
           selectedDatesArray={selectedDatesArray}
           setSelectedDatesArray={setSelectedDatesArray}
         />
-        {/* <SaisonImg
+      <SaisonImg
         date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
         width='30%'
-        
-      /> */}
+      />
 
-        <div>
-          {selectedDatesArray.map((date, index) => (
-            <p key={index}>{JSON.stringify(date)}</p>
-          ))}
-        </div>
+      <Grille /> 
+      <DarkModeToggle value={dark} setValue={setDark} />
+   
+
       </div>
-    </>
+      </>
   );
 }
 

@@ -1,50 +1,50 @@
+import {useState} from 'react';
 import PropTypes from "prop-types";
-import  {useState} from 'react';
-import './grille.css';
-
 import GridDay from './GrilleDay';
-import GridCalendar from '../gridCalendar/GridCalendar';
+import GridWek from "./GridWek";
+import './grille.css';
+import Btn from "../btns/Btn";
+import "./gridCalendar.css"
 
-function Grille({value, setValue}) {
+function Grille({value = new Date(), setValue, heigth = "500px"})
+  {
   const [grid, setGrid] = useState("day")
-
-  const styleActive = (val) => {
-    if(grid != val){
-     return {background: 'white', color: '#00012e'}
-    }else {
-      return {}
-    }
-  }
   return (
-    <div>
+    <div className='colRight' style={{height: heigth}}>
       <div className='divAction'>
-        <button 
-             className='btnAction' 
-             onClick={() => setGrid("day")}
-             style={styleActive("day")}
+        <Btn onClick={() => setGrid("day")} 
+             background={grid == "day" ? "#00012e" : "#fff"} 
+             color={grid == "day" ? "#fff" : "#00012e"}
+             fontSize={20}
+             padding='7px 30px'
+             border='1px solid #00012e'
+             height='40px'
         >
-              Day
-        </button>
-        <button    
-             className='btnAction' 
-             onClick={() => setGrid("week")}
-             style={styleActive("week")}
+          Day
+        </Btn>
+        <Btn onClick={() => setGrid("week")} 
+             background={grid == "week" ? "#00012e" : "#fff"} 
+             color={grid == "week" ? "#fff" : "#00012e"}
+             fontSize={20}
+             padding='10px 20px'
+             border='1px solid #00012e'
+             height='40px'
         >
-             Week
-        </button>
+          Week
+        </Btn>
       </div>
       {grid === "day" ?
       <GridDay value={value} setValue={setValue} />
       :
-      <GridCalendar value={value} setValue={setValue}  />
+      <GridWek value={value} setValue={setValue}  />
       }
 </div>
 )
 }
-
 Grille.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]).isRequired,
+    value: PropTypes.Date,
     setValue: PropTypes.func.isRequired,
+    heigth: PropTypes.string
 }
 
 export default Grille

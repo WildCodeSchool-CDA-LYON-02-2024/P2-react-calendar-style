@@ -3,12 +3,7 @@
     justify-content: center;
     align-content: center;
   }
-  
-  .btnAction {
-    background: #00012e;
-    color: #fff;
-    padding: 7px 30px;
-    cursor: pointer;
-    border: 1px solid #00012e;
-    font-size: 20px;
+
+  .colRight {
+    max-height: 600px;
   }
