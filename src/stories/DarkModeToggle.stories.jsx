@@ -1,4 +1,4 @@
-import DarkModeToggle from "../components/darkMode/DarkModeToggle";
+import {DarkModeToggle} from "../components/darkMode/DarkModeToggle";
 
 export default {
     component: DarkModeToggle ,

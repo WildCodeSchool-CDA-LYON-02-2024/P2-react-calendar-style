@@ -1,4 +1,4 @@
-import WeekDaysCases from '../components/weekDaysCase/WeekDaysCases';
+import {WeekDaysCases} from '../components/weekDaysCase/WeekDaysCases';
 
 // eslint-disable-next-line storybook/story-exports
 export default {

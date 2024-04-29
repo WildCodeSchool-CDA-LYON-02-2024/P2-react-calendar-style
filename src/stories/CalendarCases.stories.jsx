@@ -1,4 +1,4 @@
-import CalendarCases from "../components/calendarCases/CalendarCases";
+import {CalendarCases} from "../components/calendarCases/CalendarCases";
 
 export default {
   title: "CalendarCases",

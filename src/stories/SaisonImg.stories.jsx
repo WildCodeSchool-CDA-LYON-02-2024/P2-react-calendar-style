@@ -1,4 +1,4 @@
-import SaisonImg from "../components/saison_img/SaisonImg";
+import {SaisonImg} from "../components/saison_img/SaisonImg";
 
 export default {
     component: SaisonImg,

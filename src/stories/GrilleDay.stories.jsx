@@ -1,4 +1,4 @@
-import GrilleDay from "../components/grille/GrilleDay.jsx"
+import {GrilleDay} from "../components/grille/GrilleDay.jsx"
 
 export default {
     component: GrilleDay,
