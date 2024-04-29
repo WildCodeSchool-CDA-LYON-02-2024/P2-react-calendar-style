@@ -1,7 +1,7 @@
 import PropTypes from "prop-types";
 import "./inputDate.css";
 
-function InputDate({
+export function InputDate({
   value,
   setValue,
   fontFamily,
@@ -56,5 +56,3 @@ InputDate.propTypes = {
   borderRadius: PropTypes.string,
   fontSize: PropTypes.string,
 };
-
-export { InputDate };

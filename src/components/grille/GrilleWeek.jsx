@@ -2,7 +2,7 @@ import { useState } from "react";
 import { useEffect } from "react";
 import PropTypes from "prop-types";
 import "./gridCalendar.css";
-import Btn from "../btns/Btn";
+import {Btn} from "../btns/Btn";
 
 export function GrilleWeek({
   value = new Date(),
