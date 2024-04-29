@@ -73,50 +73,19 @@ Cet élément permet d'afficher un calendrier en mois et jour, qui permet de sé
 ### Code:
 
 ```js
-export function CalendarCases({}) {
-  const [selectedDate, setSelectedDate] = useState(null);
+import { useState } from "react";
+import CalendarCases from "./components/calendarCases/CalendarCases";
 
-  const handleSelect = (event) => {
-    if (event.target.id === "day") {
-      setSelectedDate(
-        new Date(
-          currentYear,
-          currentMonth,
-          event.target.getAttribute("data-day")
-        )
-      );
-    }
-  };
+export function CalendarCases({}) {
+  const [selectedDatesArray, setSelectedDatesArray] = useState([]);
 
   return (
-    <section>
-      <div className="header">
-        <button onClick={prevMonth}>{" < "}</button>
-        <p>
-          {months[currentMonth]} {currentYear}
-        </p>
-        <button onClick={nextMonth}>{" > "}</button>
-      </div>
-      <div className="monthContainer" onClick={handleSelect}>
-        {range(1, getNumberOfDaysInMonth(currentYear, currentMonth) + 1).map(
-          (day, i) => (
-            <p
-              id="day"
-              data-day={day}
-              key={i}
-              className={
-                selectedDate?.getTime() ===
-                new Date(currentYear, currentMonth, day).getTime()
-                  ? "active"
-                  : ""
-              }
-            >
-              {day}
-            </p>
-          )
-        )}
-      </div>
-    </section>
+    <div className="header">
+      <CalendarCases
+        selectedDatesArray={selectedDatesArray}
+        setSelectedDatesArray={setSelectedDatesArray}
+      />
+    </div>
   );
 }
 ```
