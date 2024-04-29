@@ -2,23 +2,16 @@ import PropTypes from "prop-types";
 import Image from "./Image";
 import "./image.css";
 
-import { saisDate, urlsImg } from "../../services/Saison"
+import { saisDate, urlsImg } from "../../services/Saison";
 
-function SaisonImg({
-  date, 
-  height, 
-  width,
-  border, 
-  borderRadius,
-}) {
-
+function SaisonImg({ date, height, width, border, borderRadius }) {
   const styleElement = {
     width: width,
-    height : height,
+    height: height,
     border: border,
-    borderRadius: borderRadius
-  }
- 
+    borderRadius: borderRadius,
+  };
+
   const monthDayFormat = (dateCurrent) => {
     const maDate = new Date(dateCurrent);
     return (maDate?.getMonth() + 1) * 100 + maDate?.getDate();
@@ -59,11 +52,11 @@ function SaisonImg({
 }
 
 SaisonImg.propTypes = {
-    date: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
-    height: PropTypes.string, 
-    width: PropTypes.string,
-    border: PropTypes.string,
-    borderRadius: PropTypes.number,
-  };
+  date: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
+  height: PropTypes.string,
+  width: PropTypes.string,
+  border: PropTypes.string,
+  borderRadius: PropTypes.number,
+};
 
-export default SaisonImg;
+export { SaisonImg };

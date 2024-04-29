@@ -1,4 +1,4 @@
-import GridCalendar from "../components/grille/GridWek.jsx";
+import GridCalendar from "../components/grille/GrilleWeek.jsx";
 
 export default {
     component: GridCalendar,
