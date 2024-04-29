@@ -18,12 +18,10 @@ section {
   display: grid;
   grid-template-columns: repeat(7, 1fr);
   font-weight: bold;
-  gap: 2rem;
-  margin: 1rem 0 1rem 0;
+  margin: 1rem 0;
 }
 .active {
   background-color: lightblue !important;
-  padding: 0.5rem;
 }
 
 .weekDays {
@@ -41,9 +39,10 @@ button {
   display: flex;
   justify-content: center;
   align-items: center;
-  width: 0 50% 0 50%;
-  height: 50% 0 50% 0;
+  width: 0 50%;
+  height: 50% 0;
   border-radius: 20rem;
   margin: auto;
   cursor: pointer;
+  padding: 1rem;
 }

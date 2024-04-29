@@ -20,6 +20,8 @@ export default function CalendarCases({
 
   const selectedTheme = Themes[theme] || null;
 
+  console.log(selectedDate);
+
   const applyThemeStyles = () => ({
     color: color || selectedTheme.color,
     backgroundColor: backgroundColor || selectedTheme.backgroundColor,
@@ -109,6 +111,7 @@ export default function CalendarCases({
           }
         })}
       </div>
+      <div>{selectedDate ? `${selectedDate.getDate()}/${selectedDate.getMonth() + 1}/${selectedDate.getFullYear()}` : 'Aucune date sélectionnée'}</div>
     </section>
   );
 }
