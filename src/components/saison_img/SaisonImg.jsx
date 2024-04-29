@@ -4,7 +4,7 @@ import "./image.css";
 
 import { saisDate, urlsImg } from "../../services/Saison";
 
-function SaisonImg({ date, height, width, border, borderRadius }) {
+export function SaisonImg({ date, height, width, border, borderRadius }) {
   const styleElement = {
     width: width,
     height: height,
@@ -58,5 +58,3 @@ SaisonImg.propTypes = {
   border: PropTypes.string,
   borderRadius: PropTypes.number,
 };
-
-export { SaisonImg };

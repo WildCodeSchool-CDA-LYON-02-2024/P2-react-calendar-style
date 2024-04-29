@@ -3,7 +3,7 @@ import PropTypes from "prop-types";
 import "./gridCalendar.css";
 import Btn from "../btns/Btn";
 
-function GrilleDay({ value = new Date(), setValue, heigth = "500px", padding = "5px 20px" }) {
+export function GrilleDay({ value = new Date(), setValue, heigth = "500px", padding = "5px 20px" }) {
 
   const days = ["samedi", "dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi"]
   const hours = ["00h00", "01h00", "02h00", "03h00", "04h00", "05h00", "06h00", "07h00", "08h00", "09h00", "10h00", "11h00", "12h00", "13h00", "14h00", "15h00", "16h00", "17h00", "18h00", "19h00", "20h00", "21h00", "22h00", "23h00"]
@@ -114,5 +114,3 @@ GrilleDay.propTypes = {
   padding: PropTypes.string
 
 }
-
-export {GrilleDay}

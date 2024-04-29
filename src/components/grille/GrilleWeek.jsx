@@ -4,7 +4,7 @@ import PropTypes from "prop-types";
 import "./gridCalendar.css";
 import Btn from "../btns/Btn";
 
-function GrilleWeek({
+export function GrilleWeek({
   value = new Date(),
   setValue,
   heigth = "500px",
@@ -188,4 +188,3 @@ GrilleWeek.propTypes = {
   padding: PropTypes.string,
 };
 
-export { GrilleWeek };
