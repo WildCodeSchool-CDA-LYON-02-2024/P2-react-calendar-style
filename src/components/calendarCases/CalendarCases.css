@@ -1,0 +1,48 @@
+section {
+  width: 100%;
+}
+
+.header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 1rem;
+}
+
+.header > p {
+  width: 10rem;
+  font-weight: bold;
+}
+
+.monthContainer {
+  display: grid;
+  grid-template-columns: repeat(7, 1fr);
+  font-weight: bold;
+  margin: 1rem 0;
+}
+.active {
+  background-color: lightblue !important;
+}
+
+.weekDays {
+  font-weight: bold;
+  display: grid;
+  grid-template-columns: (1fr);
+}
+
+button {
+  cursor: pointer;
+  padding: 0.5rem;
+}
+
+#day {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 0 50%;
+  height: 50% 0;
+  border-radius: 20rem;
+  margin: auto;
+  cursor: pointer;
+  padding: 1rem;
+}
