@@ -1,7 +1,7 @@
 import {useState} from 'react';
 import PropTypes from "prop-types";
 import GridDay from './GrilleDay';
-import GridWek from "./GridWek";
+import GridWek from "./GrilleWeek";
 import './grille.css';
 import Btn from "../btns/Btn";
 import "./gridCalendar.css"
