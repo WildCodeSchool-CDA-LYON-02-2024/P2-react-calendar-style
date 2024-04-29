@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-function Btn({
+export function Btn({
     className = "",
     width= "",
     height= "",
@@ -54,8 +54,6 @@ Btn.propTypes = {
     disabled: PropTypes.bool,
     children: PropTypes.string  
   };
-
-  export default Btn;
 
   // Btn.defaultProps = {
   //   height: "35px",
