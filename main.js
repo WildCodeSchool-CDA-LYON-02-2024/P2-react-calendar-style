@@ -1,4 +1,4 @@
-import SaisonImg from "./src/components/saison_img/SaisonImg.jsx";
+// import SaisonImg from "./src/components/saison_img/SaisonImg.jsx";
 import InputDate from "./src/components/inputs/InputDate.jsx";
 
 import WeekDaysCases from "./src/components/weekDaysCase/WeekDaysCases.jsx";
@@ -11,7 +11,7 @@ import GrilleDay from "./src/components/grille/GrilleDay.jsx";
 import GrilleWeek from "./src/components/grille/GrilleWeek.jsx";
 
 export {
-  SaisonImg,
+  // SaisonImg,
   InputDate,
   WeekDaysCases,
   CalendarCases,

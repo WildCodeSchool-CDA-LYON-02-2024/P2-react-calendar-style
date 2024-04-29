@@ -108,8 +108,8 @@ function GrilleDay({ value = new Date(), setValue, heigth = "500px", padding = "
 }
 
 GrilleDay.propTypes = {
-  value: PropTypes.date,
-  setValue: PropTypes.func.isRequired,
+  value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
+  setValue: PropTypes.func,
   heigth: PropTypes.string,
   padding: PropTypes.string
 

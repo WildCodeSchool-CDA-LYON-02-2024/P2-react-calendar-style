@@ -59,19 +59,11 @@ function SaisonImg({
 }
 
 SaisonImg.propTypes = {
-    date: PropTypes.Date,
-    height: PropTypes.string.isRequired, 
-    width: PropTypes.string.isRequired,
-    border: PropTypes.string.isRequired,
-    borderRadius: PropTypes.number.isRequired,
-  };
-
-  SaisonImg.defaultProps = {
-    date: new Date(),
-    height: "360px", 
-    width: "480px",
-    border: "5px solid grey",
-    borderRadius: "10px",
+    date: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
+    height: PropTypes.string, 
+    width: PropTypes.string,
+    border: PropTypes.string,
+    borderRadius: PropTypes.number,
   };
 
 export default SaisonImg;
