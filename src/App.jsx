@@ -45,9 +45,10 @@ function App() {
         width='30%'
       />
 
-      <Grille /> 
+      <>
+      <Grille value={date} setValue={setDate}/>
       <DarkModeToggle value={dark} setValue={setDark} />
-   
+      </>
 
       </div>
       </>
