@@ -4,9 +4,6 @@ import "./image.css";
 
 import { saisDate, urlsImg } from "../../services/Saison"
 
-// function SaisonImg(props) {
-//   const { date } = props;
-  
 function SaisonImg({
   date, 
   height, 
@@ -62,7 +59,7 @@ function SaisonImg({
 }
 
 SaisonImg.propTypes = {
-    date: PropTypes.string.isRequired,
+    date: PropTypes.Date,
     height: PropTypes.string.isRequired, 
     width: PropTypes.string.isRequired,
     border: PropTypes.string.isRequired,

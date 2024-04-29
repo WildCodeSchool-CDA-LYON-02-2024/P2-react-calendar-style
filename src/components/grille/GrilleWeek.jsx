@@ -2,25 +2,24 @@ import { useState} from 'react';
 import {useEffect} from "react"
 import PropTypes from "prop-types";
 import "./gridCalendar.css"
+import Btn from "../btns/Btn";
 
-
-function GridCalendar({value, setValue}) {
+function GrilleWeek({value = new Date(), setValue, heigth = "500px", padding='5px 32px'}) {
 
   const days = ["samedi", "dimanche", "lundi", "mardi", "mercredi", "jeudi", "vendredi"]
   const hours = ["00h00","01h00","02h00","03h00","04h00","05h00","06h00","07h00","08h00","09h00","10h00","11h00","12h00","13h00","14h00","15h00","16h00","17h00","18h00","19h00","20h00","21h00","22h00","23h00"]
 
   const itemsPerPage = 7;
   const [currentPage, setCurrentPage] = useState(1);
+  const [dateSelected, setDateSelected] = useState(value);
+  const [heurSelected, setheurSelected] = useState(null);
 
-  //const year = value.getFullYear();
-  //const month = String(value.getMonth() + 1).padStart(2, '0');
-  //const day = String(value.getDate()).padStart(2, '0');  
-  //console.log(${year}-${month}-${day});
+  
 
   useEffect(() => {
     const pageCurr = value?.getDate() / itemsPerPage
     setCurrentPage(Math.ceil(pageCurr));
-  },[])
+  },[value])
 
   const handleDateClick = (date) => {
     setValue(date);
@@ -56,26 +55,41 @@ function GridCalendar({value, setValue}) {
   };
 
   const selectHour = (day, hour) => {
-    console.log("day is", day, "heur is ", hour)
+    setDateSelected(day)
+    setheurSelected(hour)
   }
   return (
-    <div className='row'>
-      <div> <span className="monthSelect">{value.toLocaleDateString('default', { month: 'long', year: 'numeric' })}</span></div>
-      <table className="table">
+    <div className='rowCalendar' style={{height: heigth}}>
+      <div className="monthSelect">
+        <p>
+        {value.toLocaleDateString('default', { month: 'long', year: 'numeric' })} 
+        </p>
+        {heurSelected  &&
+          <p>
+            Vous avez selectionne {`${dateSelected?.getDate()}-${dateSelected?.getMonth()}- ${dateSelected?.getFullYear()}`}
+
+          {`A  ${heurSelected}`}
+          </p>
+        }
+        
+      </div>
+      <table className="table" > 
   <thead>
-    <tr>
+    <tr className='thDay'>
         <th></th>
-        {days.map((d,i) => 
-          <th className='tabledays'  key={i}>{d}</th>
+        {days.map((day,index) => 
+          <th className='tabledays'  key={index}><span>{day}</span></th>
         )}     
     <th></th>
     </tr>
     <tr>
    
     <th>
-    <button className='btn' onClick={prevPage} disabled={currentPage === 1}>
-    {"<<"}
-      </button>
+      <Btn onClick={prevPage} disabled={currentPage === 1}
+           padding={padding}
+      >
+        {"<<"}
+      </Btn>
     </th>
         {daysItems.map((day,i) => 
           <th 
@@ -83,27 +97,30 @@ function GridCalendar({value, setValue}) {
              className={day.getDate() == value.getDate() ? "daySelected" : ""}
              onClick={() => handleDateClick(day)}
              >
-             <span >{day.getDate()}</span>
+             <span className='text' >{day.getDate()}</span>
           </th>
         )}
          <th>
-         <button className='btn' onClick={nextPage} disabled={endIndex >= daysInMonth.length} >
+      <Btn onClick={nextPage} disabled={endIndex >= daysInMonth.length}
+           padding={padding}
+      >
        {">>"}
-      </button>
+      </Btn>
          </th>
     </tr>
   </thead>
-  <tbody>
+  <tbody className='scrolled'>
     {hours.map((hour, index) =>
-    <tr key={index}>
-    <td className='tableHour'>{hour}</td>
+    <tr key={index} className='thDay'>
+    <td className='tableHour'><span className='text'>{hour}</span></td>
     
     {daysItems.map((day,i) => 
           <td 
              className={day.getDate() == value.getDate() ? "daySelected" : ""}  
              key={i} 
              onClick={() => selectHour(day, hour)}>
-              {/* <span >{day.getDate()}</span>  */}
+              
+              <input type="checkbox" checked={hour === heurSelected && dateSelected?.getDate() === day?.getDate() } />
           </td>
         )}
   </tr>
@@ -116,9 +133,11 @@ function GridCalendar({value, setValue}) {
   );
 }
 
-GridCalendar.propTypes = {
-    value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]).isRequired,
+GrilleWeek.propTypes = {
+    value: PropTypes.Date,
     setValue: PropTypes.func.isRequired,
+    heigth: PropTypes.string,
+    padding: PropTypes.string
 }
 
-export default GridCalendar;
+export default GrilleWeek;

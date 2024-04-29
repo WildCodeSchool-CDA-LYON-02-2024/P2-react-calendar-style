@@ -1,7 +1,6 @@
 import { useState } from "react";
 import "./CalendarCases.css";
 import { months, monthsFr } from "../../services/months";
-import WeekDaysCases from "../weekDaysCase/WeekDaysCases";
 import { getNumberOfDaysInMonth, range } from "../../services/Calendar";
 import PropTypes from "prop-types";
 import { Themes } from "../../services/themes";
@@ -81,9 +80,6 @@ export default function CalendarCases({
           {currentYear}
         </p>
         <button onClick={nextMonth}>{" >> "}</button>
-      </div>
-      <div className="weekDays">
-        <WeekDaysCases />
       </div>
       <div
         className="monthContainer"
