@@ -13,6 +13,8 @@ export default function CalendarCases({
   backgroundColor,
   display,
   theme = "Default",
+  selectedDatesArray = [],
+  setSelectedDatesArray,
 }) {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
@@ -20,7 +22,7 @@ export default function CalendarCases({
 
   const selectedTheme = Themes[theme] || null;
 
-  console.log(selectedDate);
+  console.log(selectedDatesArray);
 
   const applyThemeStyles = () => ({
     color: color || selectedTheme.color,
@@ -52,13 +54,13 @@ export default function CalendarCases({
 
   const handleSelect = (event) => {
     if (event.target.id === "day") {
-      setSelectedDate(
-        new Date(
-          currentYear,
-          currentMonth,
-          event.target.getAttribute("data-day")
-        )
+      const newSelectedDate = new Date(
+        currentYear,
+        currentMonth,
+        event.target.getAttribute("data-day")
       );
+      setSelectedDate(newSelectedDate);
+      setSelectedDatesArray([newSelectedDate]);
     }
   };
 
@@ -111,7 +113,6 @@ export default function CalendarCases({
           }
         })}
       </div>
-      <div>{selectedDate ? `${selectedDate.getDate()}/${selectedDate.getMonth() + 1}/${selectedDate.getFullYear()}` : 'Aucune date sélectionnée'}</div>
     </section>
   );
 }
@@ -124,4 +125,6 @@ CalendarCases.propTypes = {
   backgroundColor: PropTypes.string,
   theme: PropTypes.string,
   display: PropTypes.string,
+  selectedDatesArray: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
+  setSelectedDatesArray: PropTypes.func,
 };

@@ -1,4 +1,4 @@
-// import { useState } from 'react';
+import { useState } from "react";
 // import SaisonImg from './components/saison_img/SaisonImg';
 // import InputDate from './components/inputs/InputDate';
 import "./App.css";
@@ -11,6 +11,7 @@ import CalendarCases from "./components/calendarCases/CalendarCases";
 function App() {
   // const currentDate = new Date();
   // const [date, setDate] = useState(currentDate);
+  const [selectedDatesArray, setSelectedDatesArray] = useState([]);
   return (
     <>
       <div className="app">
@@ -31,11 +32,21 @@ function App() {
         /> */}
         {/*       
       <WeekDaysCases /> */}
-        <CalendarCases />
+        <CalendarCases
+          selectedDatesArray={selectedDatesArray}
+          setSelectedDatesArray={setSelectedDatesArray}
+        />
         {/* <SaisonImg
         date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
         width='30%'
+        
       /> */}
+
+        <div>
+          {selectedDatesArray.map((date, index) => (
+            <p key={index}>{JSON.stringify(date)}</p>
+          ))}
+        </div>
       </div>
     </>
   );
