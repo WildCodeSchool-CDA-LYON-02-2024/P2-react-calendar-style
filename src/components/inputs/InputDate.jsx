@@ -29,8 +29,7 @@ function InputDate({
 const handleChange = (e) => {
   setValue(new Date(e.target.value));
   };
-
-  // Convertir la valeur en chaîne au format ISO si elle est une instance de Date
+  
   const dateValue = value instanceof Date ? value.toISOString().split('T')[0] : value;
 
   return (
@@ -39,7 +38,7 @@ const handleChange = (e) => {
         className="input"
         type="date"
         onChange={(e) => handleChange(e)}
-        value={dateValue} // Utiliser la valeur convertie
+        value={dateValue}
         style={styleElement}
       />
     </div>

@@ -1,0 +1,118 @@
+.rowCalendar {
+  margin-top: 20px;
+}
+
+.rowCaledare{
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
+  margin: 15px 0px 5px 0px;
+  font-size: 20px;
+}
+
+.rowDays{
+  display: grid;
+  grid-template-rows: repeat(auto-fit, 1fr);
+  grid-template-columns: repeat(7, 1fr);
+  gap: 8px;
+  text-align: center;
+  background: rgb(37, 37, 236);
+  color: white;
+  margin: 15px 0px 5px 0px;
+  font-size: 20px;
+}
+
+.daySelected {
+  background: rgb(107, 107, 220);
+  color: white;
+  cursor: pointer;
+}
+
+.day {
+  cursor: pointer;
+}
+
+.grid {
+  text-align: center;
+}
+
+.btns {
+  display: flex;
+  justify-content: space-between;
+  border-radius: 30px;
+}
+
+.monthSelect {
+  text-align: center;
+  padding: 2px 0px;
+  font-size: 20px;
+  margin: 0px 15px 0px 15px;
+  text-transform: uppercase;
+  color: 00012e;
+}
+
+.dateSelect {
+  padding: 2px 15px;
+  font-size: 20px;
+  background: rgb(141, 141, 237);
+  color: #FFF;
+}
+        
+.hour {
+  background: red;
+  padding: 0px;
+}
+
+.table {
+  /* border: 5px solid #f54e0b;
+  width: 100%;
+  height: 100vh;
+  overflow-y: auto; */
+  
+    border: 5px solid #f54e0b;
+    width: 100%;
+    overflow-y: auto;
+    scroll-margin-top: 100px;
+    
+ 
+  }
+
+.table tr td {
+  border: 1px solid #00012E;
+}
+
+.tabledays {
+  text-align: center;
+  background: blue;
+  color: white;
+  font-size: 20px;
+  width: 14rem;
+}
+
+.tableHour {
+  text-align: center;
+  background: rgba(0, 0, 16, 0.936);
+  color: white;
+  font-size: 20px;
+}
+
+.thDay {
+  width: 100%;
+  height: 18px;
+}
+
+.text {
+  font-size: 20px;
+  padding: 4px 0px;
+}
+
+
+.tbody{
+  min-height: 200px;
+  overflow: scroll;
+  scroll-behavior: smooth;
+  max-height: 200px;
+  overflow-y: auto;
+}

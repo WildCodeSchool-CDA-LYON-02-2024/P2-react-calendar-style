@@ -32,8 +32,8 @@ const Themes = {
     fontFamily: 'Verdana',
   },
   Default: {
-    color: 'white',
-    backgroundColor: 'blue',
+    color: 'Black',
+    backgroundColor: 'White',
     fontFamily: 'Arial',
    
   },
