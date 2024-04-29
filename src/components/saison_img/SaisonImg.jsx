@@ -1,5 +1,5 @@
 import PropTypes from "prop-types";
-import Image from "./Image";
+import {Image} from "./Image";
 import "./image.css";
 
 import { saisDate, urlsImg } from "../../services/Saison";

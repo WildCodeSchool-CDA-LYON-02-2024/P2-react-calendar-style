@@ -1,7 +1,7 @@
 import { useState, useEffect } from 'react'
 import PropTypes from "prop-types";
 import "./gridCalendar.css";
-import Btn from "../btns/Btn";
+import {Btn} from "../btns/Btn";
 
 export function GrilleDay({ value = new Date(), setValue, heigth = "500px", padding = "5px 20px" }) {
 
