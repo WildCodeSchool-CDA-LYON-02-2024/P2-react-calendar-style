@@ -31,7 +31,7 @@ npm i react-calendar-style
 Exemple d'utilisation des composants:
 
 ```js
-import CalendarCases from "./components/calendarCases/CalendarCases";
+import { CalendarCases } from "react-calendar-style";
 
 function App() {
   return (
@@ -73,50 +73,18 @@ Cet élément permet d'afficher un calendrier en mois et jour, qui permet de sé
 ### Code:
 
 ```js
-export function CalendarCases({}) {
-  const [selectedDate, setSelectedDate] = useState(null);
+import { CalendarCases } from "react-calendar-style";
 
-  const handleSelect = (event) => {
-    if (event.target.id === "day") {
-      setSelectedDate(
-        new Date(
-          currentYear,
-          currentMonth,
-          event.target.getAttribute("data-day")
-        )
-      );
-    }
-  };
-
+function App() {
   return (
-    <section>
-      <div className="header">
-        <button onClick={prevMonth}>{" < "}</button>
-        <p>
-          {months[currentMonth]} {currentYear}
-        </p>
-        <button onClick={nextMonth}>{" > "}</button>
-      </div>
-      <div className="monthContainer" onClick={handleSelect}>
-        {range(1, getNumberOfDaysInMonth(currentYear, currentMonth) + 1).map(
-          (day, i) => (
-            <p
-              id="day"
-              data-day={day}
-              key={i}
-              className={
-                selectedDate?.getTime() ===
-                new Date(currentYear, currentMonth, day).getTime()
-                  ? "active"
-                  : ""
-              }
-            >
-              {day}
-            </p>
-          )
-        )}
-      </div>
-    </section>
+    <>
+      <CalendarCases
+        language="fr"
+        color="red"
+        fontFamily="Roboto"
+        backgroundColor="white"
+      />
+    </>
   );
 }
 ```
@@ -145,12 +113,12 @@ Cet élément permet d'afficher les jours de la semaine en français ou en angla
 ### Code:
 
 ```js
-export default function WeekDaysCases({}) {
+import { WeekDaysCases } from "react-calendar-style";
+
+function App() {
   return (
-    <div className="wrapper-days">
-      {english
-        ? days.map((days, i) => <div key={i}>{days}</div>)
-        : daysFr.map((days, i) => <div key={i}>{days}</div>)}
+    <div className="app">
+      <WeekDaysCases />
     </div>
   );
 }
@@ -187,22 +155,24 @@ Il permet à l’utilisateur de sélectionner facilement une date via un sélect
 ### Code:
 
 ```js
-function InputDate({}) {
-  const handleChange = (e) => {
-    setValue(new Date(e.target.value));
-  };
+import { InputDate } from "react-calendar-style";
 
-  const dateValue =
-    value instanceof Date ? value.toISOString().split("T")[0] : value;
+function App() {
+  const currentDate = new Date();
+  const [date, setDate] = useState(currentDate);
 
   return (
-    <div>
-      <input
-        className="input"
-        type="date"
-        onChange={(e) => handleChange(e)}
-        value={dateValue}
-        style={styleElement}
+    <div className="app">
+      <InputDate
+        value={date}
+        setValue={setDate}
+        height="40px"
+        width="30%"
+        background="white"
+        color="green"
+        fontFamily="Arial"
+        border="3px solid grey"
+        borderRadius="5px"
       />
     </div>
   );
@@ -235,33 +205,19 @@ L'utilisateur a le choix de garder les images déjà prédéfinies ou de choisir
 ### Code:
 
 ```js
-function SaisonImg({
-}) {
+import { InputDate, SaisonImg } from "react-calendar-style";
+function App() {
+  const currentDate = new Date();
+  const [date, setDate] = useState(currentDate);
 
-
-  const monthDayFormat = (dateCurrent) => {
-    const maDate = new Date(dateCurrent);
-    return (maDate?.getMonth() + 1) * 100 + maDate?.getDate();
-  };
-  const setSaisons = (dateSais) => {
-    if (
-      monthDayFormat(dateSais) >= monthDayFormat(saisDate.printemt) &&
-      monthDayFormat(dateSais) < monthDayFormat(saisDate.ete)
-    ) {
-      return urlsImg.img1;
-    }
-    if (
-      monthDayFormat(dateSais) >= monthDayFormat(saisDate.ete) &&
-      monthDayFormat(dateSais) < monthDayFormat(saisDate.automne)
-    ) {
-      return urlsImg.img2;
-    }
-
-    if (....)
-  };
   return (
-    <div>
-      <Image src={setSaisons(date)} style={styleElement} />
+    <div className="app">
+      <InputDate value={date} setValue={setDate} /> //utiliser InputDate pour la
+      modification d'image
+      <SaisonImg
+        date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
+        width="30%"
+      />
     </div>
   );
 }
@@ -293,37 +249,18 @@ L'utilisateur a le choix passer d'une journee a une autre en faisant appel au co
 ### Code:
 
 ```js
-function GrilleDay() {
-  const nextPage = () => {
-    setCurrentPage((prevPage) => prevPage + 1);
-  };
+import { GrilleDay } from "react-calendar-style";
 
-  const prevPage = () => {
-    setCurrentPage((prevPage) => prevPage - 1);
-  };
-
+function App() {
   return (
-    <div className="rowCalendar" style={{ height: heigth }}>
-      <table className="table">
-        <thead>
-          <tr>
-            <th>
-              <Btn
-                onClick={prevPage}
-                disabled={currentPage === 1}
-                padding={padding}
-              >
-                {"<<"}
-              </Btn>
-              </th>
-          </tr>
-        </thead>
-      </table>
+    <div className="app">
+      <GrilleDay />
     </div>
   );
+}
 ```
 
-### GridWeek
+### GrilleWeek
 
 <br/>
 
@@ -348,45 +285,15 @@ L'utilisateur a le choix passer d'une semaine a une autre en faisant appel au co
 ### Code:
 
 ```js
-function GridCalendar({}) {
+import { GrilleWeek } from "react-calendar-style";
 
-  const handleDateClick = (date) => {
-    setValue(date);
-  };
-    return days;
-  };
-  const nextPage = () => {
-    setCurrentPage(prevPage => prevPage + 1);
-  };
-
-  const prevPage = () => {
-    setCurrentPage(prevPage => prevPage - 1);
-  };
-  const selectHour = (day, hour) => {
-    console.log("day is", day, "heur is ", hour)
-  }
+function App() {
   return (
-    <div className='rowCalendar' style={{height: heigth}}>
-      <div className="monthSelect">
-        {value.toLocaleDateString('default', { month: 'long', year: 'numeric' })}
-      </div>
-      <table className="table" >
-  <thead>
-    <tr className='thDay'>
-        <th></th>
-        {days.map((day,index) =>
-          <th className='tabledays'  key={index}><span>{day}</span></th>
-        )}
-    <th></th>
-    </tr>
-    <tr>
-    <th>
-      <Btn onClick={prevPage} disabled={currentPage === 1}
-           padding={padding}
-      >
-        {"<<"}
-      </Btn>
-   )}
+    <div className="app">
+      <GrilleWeek />
+    </div>
+  );
+}
 ```
 
 ### Grille
@@ -413,19 +320,12 @@ ce composant regroupe plusieurs composnat pour son bon fonctionnement: GridDay, 
 ### Code:
 
 ```js
-function Grille({}) {
-  const [grid, setGrid] = useState("day");
+import { Grille } from "react-calendar-style";
+
+function App() {
   return (
-    <div className="colRight" style={{ height: heigth }}>
-      <div className="divAction">
-        <Btn onClick={() => setGrid("day")}>Day</Btn>
-        <Btn onClick={() => setGrid("week")}>Week</Btn>
-      </div>
-      {grid === "day" ? (
-        <GridDay value={value} setValue={setValue} />
-      ) : (
-        <GridWek value={value} setValue={setValue} />
-      )}
+    <div className="app">
+      <Grille />
     </div>
   );
 }
