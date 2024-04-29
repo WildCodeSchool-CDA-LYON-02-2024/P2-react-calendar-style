@@ -1,4 +1,3 @@
-
 import PropTypes from "prop-types";
 import "./image.css";
 
@@ -10,7 +9,7 @@ function Image({ src, style }) {
 }
 
 Image.propTypes = {
-  src: PropTypes.string.isRequired,
+  src: PropTypes.string,
   style: PropTypes.object
 };
 

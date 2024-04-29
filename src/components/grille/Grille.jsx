@@ -42,8 +42,8 @@ function Grille({value = new Date(), setValue, heigth = "500px"})
 )
 }
 Grille.propTypes = {
-    value: PropTypes.Date,
-    setValue: PropTypes.func.isRequired,
+    value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]),
+    setValue: PropTypes.func,
     heigth: PropTypes.string
 }
 

@@ -47,15 +47,15 @@ const handleChange = (e) => {
 
 InputDate.propTypes = {
   value: PropTypes.oneOfType([PropTypes.instanceOf(Date), PropTypes.string]).isRequired,
-  setValue: PropTypes.func.isRequired,
-  height:PropTypes.number,
-  width: PropTypes.number,
+  setValue: PropTypes.func,
+  height:PropTypes.string,
+  width: PropTypes.string,
   background: PropTypes.string,
   color: PropTypes.string,
   fontFamily: PropTypes.string, 
   border: PropTypes.string, 
-  borderRadius: PropTypes.number,
-  fontSize: PropTypes.number
+  borderRadius: PropTypes.string,
+  fontSize: PropTypes.string
 };
 
 export default InputDate;
