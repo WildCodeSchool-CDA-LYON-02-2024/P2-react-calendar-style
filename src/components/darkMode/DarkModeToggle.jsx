@@ -25,4 +25,4 @@ DarkModeToggle.propTypes = {
   setValue: PropTypes.func.isRequired,
 }
 
-export default DarkModeToggle;
+export {DarkModeToggle};

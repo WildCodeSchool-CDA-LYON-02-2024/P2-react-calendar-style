@@ -1,9 +1,14 @@
 {
   "name": "react-calendar-style",
   "private": false,
-  "version": "0.0.4",
+  "version": "0.0.5",
   "type": "module",
   "main": "main.js",
+  "repository": {
+    "type": "git",
+    "url": "https://github.com/WildCodeSchool-CDA-LYON-02-2024/P2-react-calendar-style"
+  },
+  "homepage": "https://react-calendar-style-doc.netlify.app/",
   "scripts": {
     "dev": "vite",
     "build": "vite build",

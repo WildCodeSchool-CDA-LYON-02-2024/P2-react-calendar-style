@@ -115,4 +115,4 @@ GrilleDay.propTypes = {
 
 }
 
-export default GrilleDay
+export {GrilleDay}

@@ -47,4 +47,4 @@ Grille.propTypes = {
     heigth: PropTypes.string
 }
 
-export default Grille
+export {Grille}
