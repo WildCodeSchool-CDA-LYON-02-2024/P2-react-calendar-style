@@ -1,10 +1,10 @@
-import { useState } from 'react';
+import { useState } from "react";
 import { useEffect } from 'react'
 import SaisonImg from './components/saison_img/SaisonImg';
 import InputDate from './components/inputs/InputDate';
-import './App.css';
+import "./App.css";
 import WeekDaysCases from './components/weekDaysCase/WeekDaysCases.jsx';
-import CalendarCases from './components/calendarCases/CalendarCases';
+import CalendarCases from "./components/calendarCases/CalendarCases";
 import Grille from './components/grille/Grille';
 import DarkModeToggle from './components/darkMode/DarkModeToggle.jsx';
 
@@ -17,36 +17,40 @@ function App() {
     document.body.className = dark ? 'dark-mode' : 'light-mode';
   }, [dark]);
 
+  const [selectedDatesArray, setSelectedDatesArray] = useState([]);
   return (
+    <>
+
     <div className="app">
-      <div className="main">
-        <div className="col1">
-          <InputDate
-            value={date}
-            setValue={setDate}
-            height='18px'
-            width='480px'
-            background='white'
-            color='green'
-            fontFamily='Arial'
-            border='3px solid grey'
-            borderRadius='5px'
-          />
+    
+        <InputDate
+          value={date}
+          setValue={setDate}
+          height='40px'
+          width='30%'
+          background='white'
+          color='green'
+          fontFamily='Arial'
+          border='3px solid grey'
+          borderRadius='5px'
+        />
+      
+      <WeekDaysCases />
+      <CalendarCases
+          selectedDatesArray={selectedDatesArray}
+          setSelectedDatesArray={setSelectedDatesArray}
+        />
+      <SaisonImg
+        date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
+        width='30%'
+      />
 
-          <WeekDaysCases />
-          <CalendarCases theme='Standard' />
-          <SaisonImg
-            date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
-            width="480px"
-          />
-        </div>
+      <Grille /> 
+      <DarkModeToggle value={dark} setValue={setDark} />
+   
 
-        <div className="col2">
-          <DarkModeToggle value={dark} setValue={setDark} />
-          <Grille value={date} setValue={setDate}/>
-        </div>
       </div>
-    </div>
+      </>
   );
 }
 
