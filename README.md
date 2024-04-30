@@ -39,7 +39,7 @@ function App() {
       <CalendarCases
         language="fr"
         color="red"
-        fontFamily="Roboto"
+        fontFamily="Arial"
         backgroundColor="white"
       />
     </>
@@ -81,7 +81,7 @@ function App() {
       <CalendarCases
         language="fr"
         color="red"
-        fontFamily="Roboto"
+        fontFamily="Arial"
         backgroundColor="white"
       />
     </>
