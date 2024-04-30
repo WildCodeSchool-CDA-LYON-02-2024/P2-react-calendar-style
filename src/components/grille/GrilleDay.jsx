@@ -48,7 +48,7 @@ export function GrilleDay({ value = new Date(), setValue, heigth = "500px", padd
   };
 
   const selectHour = (day, hour) => {
-    console.log("day is", day, "heur is ", hour)
+    (day, hour)
   }
 
   const getOnDay = (day) => {
