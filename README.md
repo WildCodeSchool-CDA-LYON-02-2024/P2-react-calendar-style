@@ -33,13 +33,13 @@ Exemple d'utilisation des composants:
 ```js
 import { CalendarCases } from "react-calendar-style";
 
-function App() {
+export default function App() {
   return (
     <>
       <CalendarCases
         language="fr"
         color="red"
-        fontFamily="Roboto"
+        fontFamily="Arial"
         backgroundColor="white"
       />
     </>
@@ -75,13 +75,13 @@ Cet élément permet d'afficher un calendrier en mois et jour, qui permet de sé
 ```js
 import { CalendarCases } from "react-calendar-style";
 
-function App() {
+export default function App() {
   return (
     <>
       <CalendarCases
         language="fr"
         color="red"
-        fontFamily="Roboto"
+        fontFamily="Arial"
         backgroundColor="white"
       />
     </>
@@ -115,7 +115,7 @@ Cet élément permet d'afficher les jours de la semaine en français ou en angla
 ```js
 import { WeekDaysCases } from "react-calendar-style";
 
-function App() {
+export default function App() {
   return (
     <div className="app">
       <WeekDaysCases />
@@ -155,9 +155,10 @@ Il permet à l’utilisateur de sélectionner facilement une date via un sélect
 ### Code:
 
 ```js
+import { useState } from "react";
 import { InputDate } from "react-calendar-style";
 
-function App() {
+export default function App() {
   const currentDate = new Date();
   const [date, setDate] = useState(currentDate);
 
@@ -205,15 +206,17 @@ L'utilisateur a le choix de garder les images déjà prédéfinies ou de choisir
 ### Code:
 
 ```js
+import { useState } from "react";
 import { InputDate, SaisonImg } from "react-calendar-style";
-function App() {
+
+export default function App() {
   const currentDate = new Date();
   const [date, setDate] = useState(currentDate);
 
   return (
     <div className="app">
-      <InputDate value={date} setValue={setDate} /> //utiliser InputDate pour la
-      modification d'image
+    {/*utiliser InputDate pour la modification d'image */}
+      <InputDate value={date} setValue={setDate} /> 
       <SaisonImg
         date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
         width="30%"

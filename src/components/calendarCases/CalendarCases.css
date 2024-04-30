@@ -46,3 +46,7 @@ button {
   cursor: pointer;
   padding: 1rem;
 }
+
+p {
+  text-align: center;
+}

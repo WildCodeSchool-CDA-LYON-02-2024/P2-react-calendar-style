@@ -63,7 +63,7 @@ Btn.propTypes = {
     fontFamily: "arial",
     border: "2px solid blue",
     borderRadius: "0px",
-    fontSize: "20px",
+    fontSize: 20,
     type:"button" || "submit" || "reset",
     disabled: false,
     children: "button" || ">>" ||"<<",
