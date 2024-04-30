@@ -4,6 +4,7 @@ import { months, monthsFr } from "../../services/months";
 import { getNumberOfDaysInMonth, range } from "../../services/Calendar";
 import PropTypes from "prop-types";
 import { Themes } from "../../services/themes";
+import { WeekDaysCases } from "../weekDaysCase/WeekDaysCases";
 
 export function CalendarCases({
   language = "fr",
@@ -58,7 +59,9 @@ export function CalendarCases({
   const handleMouseEnter = (event, day) => {
     if (isMouseDown) {
       const newDate = new Date(currentYear, currentMonth, day);
-      if (!selectedDatesArray.some(date => date.getTime() === newDate.getTime())) {
+      if (
+        !selectedDatesArray.some((date) => date.getTime() === newDate.getTime())
+      ) {
         setSelectedDatesArray([...selectedDatesArray, newDate]);
       }
     }
@@ -86,6 +89,13 @@ export function CalendarCases({
         </p>
         <button onClick={nextMonth}>{" >> "}</button>
       </div>
+      <div className="weekDays">
+        <WeekDaysCases
+          color={color}
+          fontFamily={fontFamily}
+          backgroundColor={backgroundColor}
+        />
+      </div>
       <div
         className="monthContainer"
         onMouseUp={handleMouseUp}
@@ -101,7 +111,11 @@ export function CalendarCases({
                 data-day={day}
                 key={i}
                 className={
-                  selectedDatesArray.some(date => date.getTime() === new Date(currentYear, currentMonth, day).getTime())
+                  selectedDatesArray.some(
+                    (date) =>
+                      date.getTime() ===
+                      new Date(currentYear, currentMonth, day).getTime()
+                  )
                     ? "active"
                     : ""
                 }
