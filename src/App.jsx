@@ -1,58 +1,63 @@
+import { CalendarCases } from "./components/calendarCases/CalendarCases";
 import { useState } from "react";
-import { useEffect } from 'react'
-import {SaisonImg} from './components/saison_img/SaisonImg';
-import {InputDate} from './components/inputs/InputDate';
-import "./App.css";
-import {WeekDaysCases} from './components/weekDaysCase/WeekDaysCases.jsx';
-import {CalendarCases} from "./components/calendarCases/CalendarCases";
-import {Grille} from './components/grille/Grille';
-import {DarkModeToggle} from './components/darkMode/DarkModeToggle.jsx';
 
-function App() {
-  const currentDate = new Date();
-  const [date, setDate] = useState(currentDate);
-  const [dark, setDark] = useState(false);
-
-  useEffect(() => {
-    document.body.className = dark ? 'dark-mode' : 'light-mode';
-  }, [dark]);
-
+export default function App() {
   const [selectedDatesArray, setSelectedDatesArray] = useState([]);
+  const [reservationDate, setReservationDate] = useState(null);
+  const [isConfirmationOpen, setIsConfirmationOpen] = useState(false);
+  const [selectedDateToConfirm, setSelectedDateToConfirm] = useState(null);
+
+  const handleBooking = (date) => {
+    setSelectedDateToConfirm(date);
+    setIsConfirmationOpen(true);
+  };
+
+  const confirmReservation = () => {
+    setReservationDate(selectedDateToConfirm);
+    setIsConfirmationOpen(false);
+  };
+
+  const cancelReservation = () => {
+    setIsConfirmationOpen(false);
+  };
+
   return (
     <>
-
-    <div className="app">
-    
-        <InputDate
-          value={date}
-          setValue={setDate}
-          height='40px'
-          width='30%'
-          background='white'
-          color='green'
-          fontFamily='Arial'
-          border='3px solid grey'
-          borderRadius='5px'
-        />
-      
-      <WeekDaysCases />
       <CalendarCases
-          selectedDatesArray={selectedDatesArray}
-          setSelectedDatesArray={setSelectedDatesArray}
-        />
-      <SaisonImg
-        date={`${date.getFullYear()}-${date.getMonth() + 1}-${date.getDate()}`}
-        width='30%'
+        selectedDatesArray={selectedDatesArray}
+        setSelectedDatesArray={setSelectedDatesArray}
+        language="fr"
+        color="black"
+        fontFamily="Arial"
+        backgroundColor="white"
+        onDateClick={handleBooking}
       />
-
-      <>
-      <Grille value={date} setValue={setDate}/>
-      <DarkModeToggle value={dark} setValue={setDark} />
-      </>
-
+      <div>
+        {selectedDatesArray &&
+          selectedDatesArray.map((date, index) => (
+            <span key={index}>
+              {new Date(date).toLocaleDateString("fr-FR")}
+            </span>
+          ))}
+        <div>
+          {reservationDate && (
+            <div>
+              Vous avez réservé pour la date :{" "}
+              {reservationDate.toLocaleDateString("fr-FR")}
+            </div>
+          )}
+        </div>
       </div>
-      </>
+
+      {isConfirmationOpen && (
+        <div className="confirmation-modal">
+          <p>Voulez-vous confirmer la réservation pour la date :</p>
+          <p>{selectedDateToConfirm.toLocaleDateString("fr-FR")}</p>
+          <button onClick={confirmReservation}>Confirmer</button>
+          <button onClick={cancelReservation}>Annuler</button>
+        </div>
+      )}
+    </>
   );
 }
 
-export default App;

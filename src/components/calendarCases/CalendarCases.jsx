@@ -15,10 +15,12 @@ export function CalendarCases({
   theme = "Default",
   selectedDatesArray = [],
   setSelectedDatesArray,
+  onDateClick,
 }) {
   const [currentMonth, setCurrentMonth] = useState(new Date().getMonth());
   const [currentYear, setCurrentYear] = useState(new Date().getFullYear());
   const [isMouseDown, setIsMouseDown] = useState(false);
+  const [startSelectionDate, setStartSelectionDate] = useState(null);
 
   const selectedTheme = Themes[theme] || null;
   const calendarRef = useRef(null);
@@ -51,18 +53,23 @@ export function CalendarCases({
     }
   };
 
-  const handleselectDate = (event, day) => {
+  const handleSelectDate = (event, day) => {
     setIsMouseDown(true);
+    setStartSelectionDate(new Date(currentYear, currentMonth, day));
     setSelectedDatesArray([new Date(currentYear, currentMonth, day)]);
+    if (onDateClick) {
+      onDateClick(new Date(currentYear, currentMonth, day));
+    }
   };
 
   const handleMouseEnter = (event, day) => {
     if (isMouseDown) {
       const newDate = new Date(currentYear, currentMonth, day);
-      if (
-        !selectedDatesArray.some((date) => date.getTime() === newDate.getTime())
-      ) {
+      if (!selectedDatesArray.some((date) => date.getTime() === newDate.getTime())) {
         setSelectedDatesArray([...selectedDatesArray, newDate]);
+        if (onDateClick) {
+          onDateClick(newDate);
+        }
       }
     }
   };
@@ -113,13 +120,14 @@ export function CalendarCases({
                 className={
                   selectedDatesArray.some(
                     (date) =>
-                      date.getTime() ===
-                      new Date(currentYear, currentMonth, day).getTime()
+                      date.getTime() === new Date(currentYear, currentMonth, day).getTime()
                   )
                     ? "active"
+                    : isMouseDown && startSelectionDate && day >= startSelectionDate.getDate()
+                    ? "hover"
                     : ""
                 }
-                onMouseDown={(event) => handleselectDate(event, day)}
+                onMouseDown={(event) => handleSelectDate(event, day)}
                 onMouseEnter={(event) => handleMouseEnter(event, day)}
               >
                 {day}
@@ -142,4 +150,5 @@ CalendarCases.propTypes = {
   theme: PropTypes.string,
   selectedDatesArray: PropTypes.arrayOf(PropTypes.instanceOf(Date)),
   setSelectedDatesArray: PropTypes.func,
+  onDateClick: PropTypes.func,
 };

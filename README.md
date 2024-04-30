@@ -32,11 +32,15 @@ Exemple d'utilisation des composants:
 
 ```js
 import { CalendarCases } from "react-calendar-style";
+import { useState } from "react";
 
 export default function App() {
+  const [selectedDatesArray, setSelectedDatesArray] = useState([]);
   return (
     <>
       <CalendarCases
+        selectedDatesArray={selectedDatesArray}
+        setSelectedDatesArray={setSelectedDatesArray}
         language="fr"
         color="red"
         fontFamily="Arial"
@@ -74,11 +78,15 @@ Cet élément permet d'afficher un calendrier en mois et jour, qui permet de sé
 
 ```js
 import { CalendarCases } from "react-calendar-style";
+import { useState } from "react";
 
 export default function App() {
+  const [selectedDatesArray, setSelectedDatesArray] = useState([]);
   return (
     <>
       <CalendarCases
+        selectedDatesArray={selectedDatesArray}
+        setSelectedDatesArray={setSelectedDatesArray}
         language="fr"
         color="red"
         fontFamily="Arial"
