@@ -6,17 +6,16 @@
 
 ## 📚 Sommaire
 
-- Installation
-- Utilisation
-- Composants :
-  - Description
-  - Capture image
-  - Props
-  - Code
+<br/><br/>
+1. [Installation](#installation)
+2. [Utilisation](#utilisation)
+3. [Composants](#composants)
+
 
 <br/><br/>
 
-## 📦 Installation
+## 📦 Installation <a id="installation"></a>
+
 
 Installation en exécutant la commande :
 
@@ -26,7 +25,8 @@ npm i react-calendar-style
 
 <br/><br/>
 
-## 🚀 Utilisation
+## 🚀 Utilisation <a id="utilisation"></a>
+
 
 Exemple d'utilisation des composants:
 
@@ -49,7 +49,7 @@ export default function App() {
 
 <br/>
 
-## ⚒️ Composants
+## ⚒️ Composants <a id="composants"></a>
 
 ### CalendarCases
 
