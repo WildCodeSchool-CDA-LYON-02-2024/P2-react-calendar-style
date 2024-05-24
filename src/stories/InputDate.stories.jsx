@@ -10,3 +10,10 @@ export default {
     return <InputDate {...args} />;
   }
   
+    
+export const Demo = {
+  
+    args: {
+    value: new Date('2021-03-25'),
+    },
+  };

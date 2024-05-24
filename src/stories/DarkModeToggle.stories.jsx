@@ -10,3 +10,8 @@ export default {
     return <DarkModeToggle  {...args} />;
   }
   
+  export const Demo = {
+    args: {
+      value:true,
+    },
+  };
